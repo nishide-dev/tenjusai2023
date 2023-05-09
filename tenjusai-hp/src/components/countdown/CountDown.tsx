@@ -23,42 +23,29 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
     const minutes: number = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
     const seconds: number = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
+    const data = [
+        { name: 'days', value: days },
+        { name: 'hours', value: hours },
+        { name: 'minutes', value: minutes },
+        { name: 'seconds', value: seconds },
+    ];
+
     return (
         <div>
             <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
-                <div className="flex flex-col">
-                    <span className="countdown font-mono text-5xl">
-                    <span>{days}</span>
-                    </span>
-                    days
-                </div> 
-                <div className="flex flex-col">
-                    <span className="countdown font-mono text-5xl">
-                    <span>{hours}</span>
-                    </span>
-                    hours
-                </div> 
-                <div className="flex flex-col">
-                    <span className="countdown font-mono text-5xl">
-                    <span>{minutes}</span>
-                    </span>
-                    min
-                </div> 
-                <div className="flex flex-col">
-                    <span className="countdown font-mono text-5xl">
-                    <span>{seconds}</span>
-                    </span>
-                    sec
-                </div>
+                {data.map((item) => {
+                    return (
+                        <div className="flex flex-col" key={item.name}>
+                            <span className="countdown font-mono text-5xl">
+                            <span>{item.value}</span>
+                            </span>
+                            {item.name}
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
 };
 
 export default Countdown;
-
-
-
-
-
-
