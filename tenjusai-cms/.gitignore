@@ -113,4 +113,5 @@ exports
 dist
 build
 .strapi-updater.json
-*.crt
+# *.crt
+push_to_ecr.sh
