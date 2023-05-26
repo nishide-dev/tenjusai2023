@@ -1,7 +1,0 @@
-# Microtica component spec
-
-name: comp
-description: Microtica Strapi component
-spec:
-  cfn_path: index.json
-  schema_path: schema.json
