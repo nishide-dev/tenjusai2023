@@ -10,7 +10,9 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-graphql": "^4.10.5",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "@strapi/plugin-graphql": "^4.11.2",
     "@strapi/plugin-i18n": "4.10.5",
     "@strapi/plugin-users-permissions": "4.10.5",
     "@strapi/provider-upload-aws-s3": "^4.11.1",
