@@ -115,3 +115,4 @@ build
 .strapi-updater.json
 # *.crt
 push_to_ecr.sh
+*.crt
