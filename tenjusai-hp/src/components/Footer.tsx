@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function BottomBar() {
+export default function Footer() {
     return (
         <>
             <footer className="bg-gray-900">
@@ -8,13 +8,13 @@ export default function BottomBar() {
                     <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
                         <Link href="" className="flex items-center">
-                            <img src="/emoji.png" className="h-8 mr-3" alt="FlowBite Logo" />
+                            <img src="/tenjusai.png" className="h-12 mr-3" alt="FlowBite Logo" />
                             <span className="self-center text-xl font-semibold whitespace-nowrap text-white">天樹祭 2023</span>
                         </Link>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold uppercase text-white">Resources</h2>
+                            <h2 className="mb-6 text-sm font-semibold uppercase text-white">Links</h2>
                             <ul className="text-gray-400">
                                 <li className="mb-4">
                                     <Link href="" className="hover:underline">豊田工業大学</Link>
