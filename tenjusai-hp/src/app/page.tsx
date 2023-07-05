@@ -4,7 +4,6 @@ import { Inter } from 'next/font/google'
 import Countdown from '@/components/countdown/CountDown'
 import { useState, useEffect, useRef, useCallback } from 'react';
 import React from 'react';
-import FadeInText from '@/components/animations/FadeIn';
 import AboutUs from '@/components/about/AboutUs';
 import MainSchedule from '@/components/schedule/MainSchedule';
 import Access from '@/components/map/Access';
@@ -40,9 +39,24 @@ const ScrollButton: React.FC = () => {
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   };
 
+  const [opacity, setOpacity] = useState(0);
+
+  useEffect(() => {
+      const handleScroll = () => {
+          // スクロール位置が0なら opacity 0, それ以外は 100
+          setOpacity(window.scrollY > 0 ? 100 : 0);
+      };
+
+      // スクロールイベントリスナーを追加
+      window.addEventListener('scroll', handleScroll);
+
+      // クリーンアップ関数でイベントリスナーを削除
+      return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
-      <div className="fixed z-20 right-4 bottom-10">
+      <div className={`fixed ${opacity == 0 ? "-z-20" : "z-20"} right-4 bottom-10`}>
         <div onClick={handleScrollToTop} className="w-12 h-12 bg-tenjusaiOrange rounded-full cursor-pointer animate-bounce flex items-center justify-center mb-3 rotate-180">
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -67,12 +81,6 @@ export default function Home() {
   useEffect(() => {
     setShowBigTitle(true);
   }, [])
-
-  const [scrollY, setScrollY] = useState(0);
-
-  const handleScroll = useCallback(() => {
-    setScrollY(window.scrollY);
-  }, []);
 
   return (
     <>

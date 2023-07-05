@@ -12,7 +12,8 @@ const routes: Route[] = [
     { href: '/stage', title: 'ステージ' },
     { href: '/event', title: 'イベント' },
     { href: '/lab', title: '研究室' },
-    { href: '/qa', title: 'お問い合わせ' },
+    { href: '/yatai', title: '屋台' },
+    // { href: '/qa', title: 'お問い合わせ' },
 ];
 
 export default function Header() {
