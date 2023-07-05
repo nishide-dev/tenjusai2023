@@ -16,7 +16,8 @@ module.exports = {
       },
       colors: {
         tenjusaiHero: '#F8ECD4',
-        tenjusaiGreen: '#34B0A5'
+        tenjusaiGreen: '#34B0A5',
+        tenjusaiOrange: '#ED5347',
       },
       typography: (theme) => ({
         DEFAULT: {

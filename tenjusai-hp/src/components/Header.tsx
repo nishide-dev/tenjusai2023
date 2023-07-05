@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { MouseEventHandler } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 type Route = {
     href: string;
@@ -36,10 +36,25 @@ export default function Header() {
         );
     }
 
+    const [opacity, setOpacity] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // スクロール位置が0なら opacity 0, それ以外は 100
+            setOpacity(window.scrollY > 0 ? 100 : 0);
+        };
+
+        // スクロールイベントリスナーを追加
+        window.addEventListener('scroll', handleScroll);
+
+        // クリーンアップ関数でイベントリスナーを削除
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
         <>
             <BlackScreen />
-            <nav className={`${showMenu ? 'bg-white' : ''} bg-none border-gray-200 px-2 sm:px-4 py-2.5 fixed w-full z-20 opacity-100`}>
+            <nav className={`${showMenu ? 'bg-white' : ''} ${opacity == 0 && !showMenu ? 'bg-none' : 'bg-tenjusaiHero'} border-gray-200 px-2 sm:px-4 py-2.5 fixed w-full z-20 opacity-100`}>
                 <div className="container flex flex-wrap items-center justify-between mx-auto">
                     <Link href="/#" className="flex items-center" onClick={handleClick}>
                         <img src="tenjusai.png" className="fixed h-12 mr-3 sm:h-16" alt="Flowbite Logo" />
