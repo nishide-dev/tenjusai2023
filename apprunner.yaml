@@ -7,3 +7,17 @@ build:
 run:
   commands:
     - npm start
+
+runtime: nodejs16
+build:
+  commands:
+    pre-build:
+      - n 14.18.3
+    build:      
+      - cd tenjusai-hp
+      - npm install
+      - npm run build
+run: 
+  command: npm start
+  network:
+    port: 3000
