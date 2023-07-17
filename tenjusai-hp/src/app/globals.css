@@ -25,3 +25,8 @@
     }
   }
 }
+
+.text-stroke-blue {
+  -webkit-text-stroke: 1px #3867A2;
+  text-stroke: 1px #3867A2;
+}

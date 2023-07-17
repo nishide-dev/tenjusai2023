@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 type Event = {
     id: number;
     name: string;
@@ -115,7 +116,7 @@ const MainSchedule: React.FC = () => {
                         <p className="text-base font-semibold leading-7 text-tenjusaiGreen">Schedule</p>
                         <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-700 sm:text-4xl">イベントスケジュール</h1>
                         <p className="mt-6 text-xl leading-8 text-gray-600 mb-8">
-                            当日のスケジュールを掲載しています。出演時間等変更になる場合がありますので、ご了承ください。
+                            当日のスケジュールを掲載しています。出演時間等変更になる場合がありますので、ご了承ください。詳しくはこちらの<Link href="/stage"><span className="text-tenjusaiOrange font-semibold">ステージ</span></Link>、<Link href="/event"><span className="text-tenjusaiOrange font-semibold">イベント</span></Link>、<Link href="/yatai"><span className="text-tenjusaiOrange font-semibold">屋台</span></Link>のページをご覧ください。
                         </p>
                         <div className="flex mb-6">
                             <div className="flex flex-row">

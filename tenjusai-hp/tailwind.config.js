@@ -12,12 +12,14 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'hero-pattern': "url('/designs/Hero.png')",
+        'sub-pattern': "url('/designs/Sub.png')",
         'wip-1': "url('/designs/wip-1.png')",
       },
       colors: {
         tenjusaiHero: '#F8ECD4',
         tenjusaiGreen: '#34B0A5',
         tenjusaiOrange: '#ED5347',
+        tenjusaiBlue: '#3867A2'
       },
       typography: (theme) => ({
         DEFAULT: {
