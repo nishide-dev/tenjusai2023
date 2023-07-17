@@ -1,0 +1,9 @@
+version: 1.0
+build:
+  commands:
+    - cd tenjusai-hp
+    - npm install
+    - npm run build
+run:
+  commands:
+    - npm start
