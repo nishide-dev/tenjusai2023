@@ -12,7 +12,7 @@ runtime: nodejs16
 build:
   commands:
     pre-build:
-      - n 14.18.3
+      - n 16.18.1
     build:      
       - cd tenjusai-hp
       - npm install
