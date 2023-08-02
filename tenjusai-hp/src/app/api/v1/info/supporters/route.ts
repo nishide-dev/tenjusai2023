@@ -1,12 +1,10 @@
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
+import supabase from '@/utils/supabase'
 
 export const GET = async (request: Request) => {
-    const supabase = createRouteHandlerClient({ cookies })
     // published_atがnullでないものを取得
     const { data: supporters } = await supabase.from('supporters').select('*').not('published_at', 'is', null)
-    // console.log(supporters)
 
     try {
 

@@ -7,7 +7,6 @@ import AboutUs from '@/components/about/AboutUs';
 import MainSchedule from '@/components/schedule/MainSchedule';
 import Access from '@/components/map/Access';
 import useInfo from '@/utils/useInfo';
-import { getWindowSize } from '@/utils/getWindowSize';
 
 interface MarqueeProps {
   text: string;
@@ -76,10 +75,6 @@ const ScrollButton: React.FC = () => {
 export default function Home() {
   const targetDate = new Date('Sep 9, 2023 09:00:00');
   const [showBigTitle, setShowBigTitle] = useState(false);
-  const { width, height } = getWindowSize();
-  const aspectRatio = width / height;
-  const isWide = aspectRatio > 1;
-  console.log(width, height);
 
   useEffect(() => {
     setShowBigTitle(true);
