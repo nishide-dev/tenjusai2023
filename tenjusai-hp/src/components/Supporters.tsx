@@ -2,13 +2,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import useInfo from "@/utils/useInfo";
-import { Info, Supporter, Banner } from "@/utils/types";
-import { FadeInToUp } from "./animations/FadeInAnimation";
+import { Info, Supporter, Banner, Dispatcher } from "@/utils/types";
+import { FadeInToUp, FadeIn } from "./animations/FadeInAnimation";
 
 const Supporters: React.FC = () => {
     const { info } = useInfo();
     const supporters: Supporter[] = info?.supporters || [];
     const banners: Banner[] = info?.banners || [];
+    const dispatchers: Dispatcher[] = info?.dispatchers || [];
 
     return (
         <>
@@ -32,8 +33,24 @@ const Supporters: React.FC = () => {
                         {
                             banners.map((banner, index) => (
                                 <Link href={banner.link || ""} key={banner.name} className=" shadow-xl" >
-                                    <Image src={banner.thumbnail_link} alt={banner.alt} height={600} width={600} />
+                                    <FadeInToUp>
+                                        <Image src={banner.thumbnail_link} alt={banner.alt} height={600} width={600} />
+                                    </FadeInToUp>
                                 </Link>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div className="mt-20 flex flex-col items-center justify-center mx-auto lg:mx-32 xl:mx-64 2xl:mx-96">
+                    <FadeIn>
+                        <div className="text-2xl font-semibold text-slate-600 mb-6">派遣企業の会一覧</div>
+                    </FadeIn>
+                    <div className="flex items-center justify-center flex-wrap gap-5 text-center">
+                        {
+                            dispatchers.map((dispatcher, index) => (
+                                <FadeInToUp key={dispatcher.name}>
+                                    <div className="text-md md:text-lg lg:text-xl xl:text-2xl font-semibold text-slate-500">{dispatcher.name}</div>
+                                </FadeInToUp>
                             ))
                         }
                     </div>

@@ -14,7 +14,13 @@ export type Banner = {
     thumbnail_link: string;
 }
 
+export type Dispatcher = {
+    id: number;
+    name: string;
+}
+
 export type Info = {
     supporters: Supporter[];
     banners: Banner[];
+    dispatchers: Dispatcher[];
 }

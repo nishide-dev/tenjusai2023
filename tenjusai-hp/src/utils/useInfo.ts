@@ -2,12 +2,13 @@
 import Router from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import fetchJson, { FetchError } from "./fetchJson";
-import { Info, Supporter, Banner } from "./types";
+import { Info, Supporter, Banner, Dispatcher } from "./types";
 
 export default function useInfo() {
     const [info, setInfo] = useState<Info | null>({
         supporters: [],
         banners: [],
+        dispatchers: [],
     });
 
     useEffect(() => {
@@ -55,8 +56,31 @@ export default function useInfo() {
                 }
             }
         };
+        const getDispatchers = async () => {
+            try {
+                const dispatchers = await fetchJson<Dispatcher[]>("/api/v1/info/dispatchers");
+                // infoにdispatchersを追加
+                setInfo((prev) => {
+                    if (prev) {
+                        return {
+                            ...prev,
+                            dispatchers: dispatchers,
+                        };
+                    }
+                    return null;
+                });
+
+            } catch (error) {
+                if (error instanceof FetchError) {
+                    console.error(error.data);
+                } else {
+                    console.error(error);
+                }
+            }
+        };
         getSupporters();
         getBanners();
+        getDispatchers();
     }, []);
 
     return {
