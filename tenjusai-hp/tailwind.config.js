@@ -14,12 +14,16 @@ module.exports = {
         'hero-pattern': "url('/designs/Hero.png')",
         'sub-pattern': "url('/designs/Sub.png')",
         'wip-1': "url('/designs/wip-1.png')",
-      },
+      }, 
       colors: {
         tenjusaiHero: '#F8ECD4',
         tenjusaiGreen: '#34B0A5',
         tenjusaiOrange: '#ED5347',
         tenjusaiBlue: '#3867A2'
+      },
+      screens: {
+        'portrait': {'raw': '(orientation: portrait)'},
+        'landscape': {'raw': '(orientation: landscape)'},
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -90,5 +94,23 @@ module.exports = {
   },
   plugins: [
     require('tailwind-scrollbar-hide'),
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.text-stroke': {
+          '-webkit-text-stroke-width': '1px',
+          '-webkit-text-stroke-color': '#000',
+        },
+        '.text-stroke-white': {
+          '-webkit-text-stroke-width': '0.5px',
+          '-webkit-text-stroke-color': '#fff',
+        },
+        '.text-stroke-tenjusaiHero': {
+          '-webkit-text-stroke-width': '1px',
+          '-webkit-text-stroke-color': '#F8ECD4',
+        },
+      }
+
+      addUtilities(newUtilities);
+    },
   ],
 }

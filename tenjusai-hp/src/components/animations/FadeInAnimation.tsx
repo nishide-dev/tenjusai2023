@@ -1,38 +1,95 @@
 'use client';
 import React, { useEffect, useRef, useState, ReactNode } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 interface FadeInWhenVisibleProps {
   children: ReactNode;
+  className?: string;
 }
 
-const FadeInWhenVisible: React.FC<FadeInWhenVisibleProps> = ({ children }) => {
-  const [isVisible, setVisible] = useState(false);
-  const domRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => setVisible(entry.isIntersecting));
-    });
+const FadeIn: React.FC<FadeInWhenVisibleProps> = ({ children, className }) => {
+  const { ref, inView } = useInView({
+      // オプション
+      rootMargin: '-100px',
+      triggerOnce: true, // 最初の一度だけ実行
+  });
 
-    if (domRef.current) {
-      observer.observe(domRef.current);
-    }
-
-    return () => {
-      if (domRef.current) {
-        observer.unobserve(domRef.current);
-      }
-    };
-  }, []);
-  
   return (
-    <div
-      className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-      ref={domRef}
-    >
-      {children}
-    </div>
-  );
+      <div
+          ref={ref}
+          className={`${inView ? " animate-fade-in" : "opacity-0"} ${className}`}
+      >
+          {children}
+      </div>
+  )
 }
 
-export default FadeInWhenVisible;
+const FadeInToRight: React.FC<FadeInWhenVisibleProps> = ({ children, className }) => {
+  const { ref, inView } = useInView({
+      // オプション
+      rootMargin: '-100px',
+      triggerOnce: true, // 最初の一度だけ実行
+  });
+
+  return (
+      <div
+          ref={ref}
+          className={`${inView ? " animate-fade-in-right" : "opacity-0"} ${className}`}
+      >
+          {children}
+      </div>
+  )
+}
+
+const FadeInToLeft: React.FC<FadeInWhenVisibleProps> = ({ children, className }) => {
+  const { ref, inView } = useInView({
+      // オプション
+      rootMargin: '-100px',
+      triggerOnce: true, // 最初の一度だけ実行
+  });
+
+  return (
+      <div
+          ref={ref}
+          className={`${inView ? " animate-fade-in-left" : "opacity-0"} ${className}`}
+      >
+          {children}
+      </div>
+  )
+}
+
+const FadeInToUp: React.FC<FadeInWhenVisibleProps> = ({ children, className }) => {
+  const { ref, inView } = useInView({
+      // オプション
+      rootMargin: '-100px',
+      triggerOnce: true, // 最初の一度だけ実行
+  });
+
+  return (
+      <div
+          ref={ref}
+          className={`${inView ? " animate-fade-in-up" : "opacity-0"} ${className}`}
+      >
+          {children}
+      </div>
+  )
+}
+
+const FadeInToDown: React.FC<FadeInWhenVisibleProps> = ({ children, className }) => {
+  const { ref, inView } = useInView({
+      // オプション
+      rootMargin: '-100px',
+      triggerOnce: true, // 最初の一度だけ実行
+  });
+
+  return (
+      <div
+          ref={ref}
+          className={`${inView ? " animate-fade-in-down" : "opacity-0"} ${className}`}
+      >
+          {children}
+      </div>
+  )
+}
+
+export { FadeIn, FadeInToRight, FadeInToLeft, FadeInToUp, FadeInToDown };
