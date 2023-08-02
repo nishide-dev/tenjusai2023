@@ -37,13 +37,13 @@ export default function AboutUs() {
               <FadeInToLeft>
                 <p className="text-base font-semibold leading-7 text-tenjusaiGreen">About</p>
                 <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-700 sm:text-4xl">天樹祭とは</h1>
-                <p className="mt-6 text-xl leading-8 text-gray-600">
+                <p className="mt-6 text-xl leading-8 text-gray-500 font-semibold">
                   天樹祭とは名古屋市にキャンパスを構える豊田工業大学の学園祭です。ステージ企画や屋台の出店、オープンキャンパスなど多数の企画を開催します。
                 </p>
               </FadeInToLeft>
               <FadeInToLeft>
                 <h2 className="mt-10 text-xl font-bold tracking-tight text-gray-700 sm:text-2xl">テーマ「<span className="text-tenjusaiGreen text-3xl">繋ぐ</span>」</h2>
-                <p className="mt-6 text-xl leading-8 text-gray-600">
+                <p className="mt-6 text-xl leading-8 text-gray-500 font-semibold">
                   今年の天樹祭のテーマは「<span className="text-tenjusaiOrange">繋ぐ</span>」です。<br/>コロナ禍で失われかけていた人同士の<span className="text-tenjusaiOrange">繋がり</span>を取り戻す。<br/>40年という伝統を次の世代に<span className="text-tenjusaiOrange">繋ぐ</span>。<br/>地域の方や他大学の学生・来場客との<span className="text-tenjusaiOrange">繋がり</span>を深める<br/>こうした様々な<span className="text-tenjusaiOrange">繋がり</span>を大切にしていきたいという思いを込めています。
                 </p>
               </FadeInToLeft>
