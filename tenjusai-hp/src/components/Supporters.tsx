@@ -2,12 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import useInfo from "@/utils/useInfo";
-import { Info, Supporter } from "@/utils/types";
+import { Info, Supporter, Banner } from "@/utils/types";
 import { FadeInToUp } from "./animations/FadeInAnimation";
 
 const Supporters: React.FC = () => {
     const { info } = useInfo();
     const supporters: Supporter[] = info?.supporters || [];
+    const banners: Banner[] = info?.banners || [];
 
     return (
         <>
@@ -25,6 +26,17 @@ const Supporters: React.FC = () => {
                             </Link>
                         ))
                     }
+                </div>
+                <div className="mt-20 flex gap-5">
+                    <div className="container flex flex-wrap justify-center mx-auto my-5">
+                        {
+                            banners.map((banner, index) => (
+                                <Link href={banner.link || ""} key={banner.name} className=" shadow-xl" >
+                                    <Image src={banner.thumbnail_link} alt={banner.alt} height={600} width={600} />
+                                </Link>
+                            ))
+                        }
+                    </div>
                 </div>
             </section>
         </>
