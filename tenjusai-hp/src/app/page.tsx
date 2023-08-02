@@ -87,7 +87,7 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center bg-hero-pattern bg-cover landscape:h-screen portrait:h-[50vh] portrait:sm:h-full bg-scroll animate-fade-in">
           <div className="absolute right-16 md:right-20 xl:right-40 2xl:right-48 overflow-hidden h-0 landscape:h-auto portrait:sm:h-auto portrait:right-20 mt-20">
             <div className="flex flex-col items-center animate-fade-in-right">
-              <Image src="/title.PNG" className="w-[20rem] lg:w-[30rem] xl:w-[40rem]" alt="logo" width={450} height={450} />
+              <Image src="/title.PNG" className="w-[20rem] lg:w-[30rem] xl:w-[40rem]" alt="logo" width={1200} height={1200} />
               {/* <div className=""><h1 className="text-tenjusaiOrange text-9xl font-extrabold">TENJUSAI</h1></div> */}
               <p className="font-semibold text-gray-500 text-lg md:text-xl lg:text-2xl mt-2">40th 豊田工業大学 大学祭</p>
               <div className="m-2 mt-4 font-bold text-tenjusaiOrange text-2xl md:text-3xl lg:text-4xl">9/10 Sat 9/11 Sun</div>
