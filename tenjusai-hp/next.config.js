@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['flowbite.s3.amazonaws.com', 'tenjusai2023-cms.s3.ap-northeast-1.amazonaws.com'],
+    domains: ['flowbite.s3.amazonaws.com', 'tenjusai2023-cms.s3.ap-northeast-1.amazonaws.com', 'images.unsplash.com'],
   },
 }
 

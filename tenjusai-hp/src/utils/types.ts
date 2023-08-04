@@ -19,8 +19,21 @@ export type Dispatcher = {
     name: string;
 }
 
+export type Stage = {
+    id: number;
+    name: string;
+    description: string;
+    thumbnail_link: string;
+    genre: string;
+    category: string;
+    main: boolean;
+    start: string;
+    end: string;
+}
+
 export type Info = {
     supporters: Supporter[];
     banners: Banner[];
     dispatchers: Dispatcher[];
+    stages: Stage[];
 }

@@ -18,12 +18,17 @@ const routes: Route[] = [
 
 export default function Header() {
     const [bgColor, setBgColor] = useState('bg-white');
+    const [textColor, setTextColor] = useState('text-gray-800');
     const pathname = usePathname();
 
     // pageが変わったら色を変える
     useEffect(() => {
         if (pathname === '/' || pathname === '/comingsoon') {
             setBgColor('bg-tenjusaiHero');
+            setTextColor('text-gray-700');
+        } else if (pathname === '/stage') {
+            setBgColor('bg-white');
+            setTextColor('text-gray-100');
         } else {
             setBgColor('bg-white');
         }
@@ -54,6 +59,10 @@ export default function Header() {
         const handleScroll = () => {
             // スクロール位置が0なら opacity 0, それ以外は 100
             setOpacity(window.scrollY > 0 ? 100 : 0);
+            if (pathname == '/stage') {
+                setTextColor(window.scrollY > 0 ? "text-gray-800" : "text-gray-100");
+                setBgColor(window.scrollY > 0 ? "bg-white" : "bg-gray-800");
+            }
         };
 
         // スクロールイベントリスナーを追加
@@ -61,7 +70,7 @@ export default function Header() {
 
         // クリーンアップ関数でイベントリスナーを削除
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [pathname]);
 
     return (
         <>
@@ -70,7 +79,7 @@ export default function Header() {
                 <div className="container flex flex-wrap items-center justify-between mx-auto">
                     <Link href="/" className="flex items-center" onClick={handleClick}>
                         <img src="tenjusai.png" className="fixed h-10 mr-3 sm:h-14" alt="Flowbite Logo" />
-                        <span className="self-center text-lg font-bold whitespace-nowrap text-gray-800 ml-16 sm:ml-24">天樹祭 2023</span>
+                        <span className={`self-center text-lg font-bold whitespace-nowrap ${textColor} ml-16 sm:ml-24`}>天樹祭 2023</span>
                     </Link>
                     <button data-collapse-toggle="#navbar-default" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false" onClick={handleToggle}>
                         <span className="sr-only">Open main menu</span>
@@ -81,7 +90,7 @@ export default function Header() {
                             {
                                 routes.map((route) => (
                                     <li key={route.title}>
-                                        <Link href={route.href} className="block my-2 md:my-0 py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-teal-700 md:p-0 font-semibold" onClick={handleClick}>{route.title}</Link>
+                                        <Link href={route.href} className={`block my-2 md:my-0 py-2 pl-3 pr-4 ${textColor} rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-teal-700 md:p-0 font-semibold`} onClick={handleClick}>{route.title}</Link>
                                     </li>
                                 ))
                             }

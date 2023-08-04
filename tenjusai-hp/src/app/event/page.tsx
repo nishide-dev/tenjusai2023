@@ -1,9 +1,19 @@
+'use client';
+import { useState, useEffect, useCallback } from 'react';
+import { Particles } from "react-tsparticles";
+import { loadFull } from 'tsparticles';
+import Fireworks from '@/components/animations/Fireworks';
 
+const Event = () => {
 
-export default function Event() {
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
-          <h2>イベント</h2>
+        <div className=" flex items-center justify-center">
+            <div className="h-[40vh] -z-10 bg-none">
+              <Fireworks />
+            </div>
+
         </div>
-    )
-}
+    );
+};
+
+export default Event;
