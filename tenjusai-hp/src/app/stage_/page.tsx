@@ -33,7 +33,7 @@ const Stage: React.FC = () => {
   }, [radius]);
 
   
-
+ 
   return (
     <div className="min-h-screen bg-blue-100 overflow-hidden">
       <div

@@ -12,12 +12,19 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'hero-pattern': "url('/designs/Hero.png')",
+        'sub-pattern': "url('/designs/Sub.png')",
         'wip-1': "url('/designs/wip-1.png')",
-      },
+        'stage': "url('/designs/bg-stage.jpg')",
+      }, 
       colors: {
         tenjusaiHero: '#F8ECD4',
         tenjusaiGreen: '#34B0A5',
         tenjusaiOrange: '#ED5347',
+        tenjusaiBlue: '#3867A2'
+      },
+      screens: {
+        'portrait': {'raw': '(orientation: portrait)'},
+        'landscape': {'raw': '(orientation: landscape)'},
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -34,6 +41,7 @@ module.exports = {
       "fade-in-down": "fade-in-down 0.8s ease-out forwards",
       "fade-in-left": "fade-in-left 0.8s ease-out forwards",
       "fade-in-right": "fade-in-right 0.8s ease-out forwards",
+      "underline-reveal": "underline-reveal 1s ease-in-out forwards",
     },
     keyframes: {
         "fade-in": {
@@ -84,9 +92,31 @@ module.exports = {
               transform: "translateX(0)"
           },
         },
+        'underline-reveal': {
+          '0%': { 'width': '0%' },
+          '100%': { 'width': '100%' },
+        },
     }
   },
   plugins: [
     require('tailwind-scrollbar-hide'),
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.text-stroke': {
+          '-webkit-text-stroke-width': '1px',
+          '-webkit-text-stroke-color': '#000',
+        },
+        '.text-stroke-white': {
+          '-webkit-text-stroke-width': '0.5px',
+          '-webkit-text-stroke-color': '#fff',
+        },
+        '.text-stroke-tenjusaiHero': {
+          '-webkit-text-stroke-width': '1px',
+          '-webkit-text-stroke-color': '#F8ECD4',
+        },
+      }
+
+      addUtilities(newUtilities);
+    },
   ],
 }

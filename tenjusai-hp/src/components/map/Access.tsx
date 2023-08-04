@@ -1,6 +1,7 @@
 'use client';
 import { useState } from "react";
 import Map from "./Map";
+import { FadeIn } from "../animations/FadeInAnimation";
 
 const Access: React.FC = () => {
     return (
@@ -17,21 +18,22 @@ const Access: React.FC = () => {
                 </div>
             </div>
             <div className="w-full bg-tenjusaiGreen">
-                <div className="flex flex-col mx-auto max-w-2xl lg:max-w-none lg:items-center py-5">
+                <FadeIn className="flex flex-col mx-auto max-w-2xl lg:max-w-none lg:items-center py-5">
                     <div className="lg:w-full lg:max-w-7xl flex flex-col md:flex-row items-center">
                         <div className="p-5 md:p-8 text-lg text-white font-medium">
                             <div className="font-semibold text-xl mb-2 sm:text-2xl">
                                 豊田工業大学
                             </div>
-                            <div className="text-gray-200 mb-4">〒468-8511 愛知県名古屋市天白区植田町豊田工業大学</div>
+                            <div className="text-gray-200 mb-4">〒468-8511 愛知県名古屋市天白区久方２丁目１２−１</div>
                             名古屋市営地下鉄桜通線「相生山駅」下車、徒歩約10分です。公共交通機関をご利用してお越しください。
                         </div>
                         <div className="md:px-4 w-full h-full">
                             <Map />
                         </div>
                     </div>
-                </div>
+                </FadeIn>
             </div>
+            <div className="bg-gradient-to-b from-tenjusaiHero to-white h-40"></div>
         </>
     );
 };

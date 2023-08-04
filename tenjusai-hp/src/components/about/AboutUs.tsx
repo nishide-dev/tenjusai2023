@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { FadeInToLeft, FadeInToRight } from "../animations/FadeInAnimation"
 
 export default function AboutUs() {
   return (
@@ -30,22 +31,27 @@ export default function AboutUs() {
         </svg>
       </div>
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10 lg:overflow-hidden">
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 animate-fade-in-left">
+        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg">
-              <p className="text-base font-semibold leading-7 text-tenjusaiGreen">About</p>
-              <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-700 sm:text-4xl">天樹祭とは</h1>
-              <p className="mt-6 text-xl leading-8 text-gray-600">
-                天樹祭とは名古屋市にキャンパスを構える豊田工業大学の学園祭です。ステージ企画や屋台の出店、オープンキャンパスなど多数の企画を開催します。
-              </p>
-              <h2 className="mt-10 text-xl font-bold tracking-tight text-gray-700 sm:text-2xl">テーマ「<span className="text-tenjusaiGreen text-3xl">繋ぐ</span>」</h2>
-              <p className="mt-6 text-xl leading-8 text-gray-600">
-                今年の天樹祭のテーマは「繋ぐ」です。説明文を書く。
-              </p>
+              <FadeInToLeft>
+                <p className="text-base font-semibold leading-7 text-tenjusaiGreen">About</p>
+                <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-700 sm:text-4xl">天樹祭とは</h1>
+                <p className="mt-6 text-xl leading-8 text-gray-500 font-semibold">
+                  天樹祭とは名古屋市にキャンパスを構える豊田工業大学の学園祭です。ステージ企画や屋台の出店、オープンキャンパスなど多数の企画を開催します。
+                </p>
+              </FadeInToLeft>
+              <FadeInToLeft>
+                <h2 className="mt-10 text-xl font-bold tracking-tight text-gray-700 sm:text-2xl">テーマ「<span className="text-tenjusaiGreen text-3xl">繋ぐ</span>」</h2>
+                <p className="mt-6 text-xl leading-8 text-gray-500 font-semibold">
+                  今年の天樹祭のテーマは「<span className="text-tenjusaiOrange">繋ぐ</span>」です。<br/>コロナ禍で失われかけていた人同士の<span className="text-tenjusaiOrange">繋がり</span>を取り戻す。<br/>40年という伝統を次の世代に<span className="text-tenjusaiOrange">繋ぐ</span>。<br/>地域の方や他大学の学生・来場客との<span className="text-tenjusaiOrange">繋がり</span>を深める<br/>こうした様々な<span className="text-tenjusaiOrange">繋がり</span>を大切にしていきたいという思いを込めています。
+                </p>
+              </FadeInToLeft>
             </div>
           </div>
         </div>
-        <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden animate-fade-in-right">
+
+        <FadeInToRight className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
             <Image
                 className="w-[32rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[38rem]"
                 src="/designs/tenju_blue.jpg"
@@ -53,7 +59,7 @@ export default function AboutUs() {
                 width={1280}
                 height={720}
             />
-        </div>
+        </FadeInToRight>
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
