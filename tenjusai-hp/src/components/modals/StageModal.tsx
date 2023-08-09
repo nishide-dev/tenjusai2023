@@ -56,7 +56,7 @@ const StageModal: React.FC<StageModalProps> = ({ stage, children}: StageModalPro
                         <div className="mb-6">
                             <div className="text-teal-600 font-semibold text-sm lg:text-md xl:text-lg">詳細</div>
                             <div className="text-gray-600 text-md lg:text-md xl:text-lg mt-2">{stage.description}</div>
-                        </div>
+                        </div> 
                     </ModalBody>
                     </>
                 )}
