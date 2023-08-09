@@ -1,7 +1,5 @@
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import Supporters from '@/components/Supporters'
+import Layout from '@/components/Layout'
 
 export const metadata = {
   title: '天樹祭 2023',
@@ -15,14 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className="scrollbar-hide">
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Supporters />
-        <Footer />
-      </body>
+      <Layout>{children}</Layout>
     </html>
   )
 }

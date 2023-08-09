@@ -10,7 +10,7 @@ type Route = {
 };
 
 const routes: Route[] = [
-    { href: '/comingsoon', title: 'ステージ' },
+    { href: '/stage', title: 'ステージ' },
     { href: '/comingsoon', title: 'イベント' },
     { href: '/comingsoon', title: '研究室' },
     { href: '/comingsoon', title: '屋台' },

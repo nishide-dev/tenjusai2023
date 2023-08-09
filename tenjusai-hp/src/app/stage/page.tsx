@@ -6,16 +6,9 @@ import useInfo from "@/utils/useInfo";
 import { Info, Stage } from "@/utils/types";
 import Fireworks from "@/components/animations/Fireworks";
 import { FadeInToUp } from "@/components/animations/FadeInAnimation";
-import StageModal from "@/components/popup/StageModal";
-
-type Product = {
-  name: string;
-  image: string;
-  alt: string;
-  price: number;
-  originalPrice: number;
-  sale: boolean;
-};
+import StageModal from "@/components/modals/StageModal";
+import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
+import { usePathname } from "next/navigation";
 
 interface StageListProps {
   stages: Stage[];
@@ -62,16 +55,22 @@ const ScrollButton: React.FC = () => {
 };
 
 const StageList: React.FC<StageListProps> = ({ stages, className }: StageListProps) => {
-  const [popHidden, setPopHidden] = useState<boolean>(true);
   return (
     <div className={`bg-white w-full ${className}`}>
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <div className="relative inline-block mb-4">
-          <h2 className="text-3xl md:text-4xl tracking-tight text-gray-900">STAGE EVENTS</h2>
-          <div className="h-1"></div>
-          <div className="absolute w-full h-0.5 bg-tenjusaiGreen bottom-0 animate-underline-reveal"></div>
+        <div className="flex flex-col lg:flex-row justify-between mb-3">
+          <div className="relative inline-block mb-4">
+            <h2 className="text-3xl md:text-4xl tracking-tight text-gray-900">STAGE EVENTS</h2>
+            <div className="h-1"></div>
+            <div className="absolute w-full h-0.5 bg-tenjusaiGreen bottom-0 animate-underline-reveal"></div>
+          </div>
+          {/* <Tabs size="lg" className="">
+            <Tab onClick={() => setStages(firstStages)} key={9} className="lg:px-6 lg:text-xl" title="9/9 (土)"></Tab>
+            <Tab onClick={() => setStages(secondStages)} key={10} className="lg:px-6 lg:text-xl" title="9/10 (日)"></Tab>
+          </Tabs> */}
         </div>
-        <div className="text-md md:text-xl font-semibold text-gray-600">イベント一覧を掲載しています。各ステージの詳細をタップしてご確認ください！</div>
+
+        <div className="text-md md:text-xl text-gray-600">イベント一覧を掲載しています。各ステージの詳細をタップしてご確認ください！</div>
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {stages.map((stage) => {
@@ -88,40 +87,39 @@ const StageList: React.FC<StageListProps> = ({ stages, className }: StageListPro
             const endHour = end.getUTCHours().toString().padStart(2, '0');
             const endMinutes = end.getUTCMinutes().toString().padStart(2, '0');
             return (
-              <div key={stage.name} className="group relative">
-                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                  <Image
-                    src={stage.thumbnail_link}
-                    alt={stage.name}
-                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                    width={600}
-                    height={600}
-                  />
-                </div>
-                <div className="mt-4 flex justify-between">
-                  <div>
-                    <h3 className="text-xl text-gray-700 m-1 font-semibold">
-                      <div>
-                        <span aria-hidden="true" className="absolute inset-0" />
-                        {stage.name}
-                      </div>
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-500"></p>
+              <StageModal stage={stage} key={stage.name}>
+                <div className="group relative">
+                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <Image
+                      src={stage.thumbnail_link}
+                      alt={stage.name}
+                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                      width={600}
+                      height={600}
+                    />
                   </div>
-                  <div className="bg-teal-600 rounded-full text-center p-1 px-5 text-sm m-1">
-                    <p className="text-sm font-medium text-gray-100">{stage.genre}</p>
+                  <div className="mt-4 flex justify-between">
+                    <div>
+                      <h3 className="text-xl text-gray-700 m-1 font-semibold">
+                        <div>
+                          <span aria-hidden="true" className="absolute inset-0" />
+                          {stage.name}
+                        </div>
+                      </h3>
+                      <p className="mt-1 text-sm text-gray-500"></p>
+                    </div>
+                    <div className="bg-teal-600 rounded-full text-center p-1 px-5 text-sm m-1">
+                      <p className="text-sm font-medium text-gray-100">{stage.genre}</p>
+                    </div>
                   </div>
+                  {/* <div className="text-gray-600 mt-2">{stage.description}</div> */}
+                  <div className="flex justify-between mt-2">
+                    <div className="m-1 text-sm text-gray-600">{stage.category}</div>
+                    <div className="text-teal-600 font-semibold">{startMonth}/{startDay} {startHour} : {startMinutes} ~ {endHour} : {endMinutes}</div>
+                  </div>
+                  {/* <button type="button" onClick={() => setPopHidden(!popHidden)} className="bg-black" >ああああ</button> */}
                 </div>
-                {/* <div className="text-gray-600 mt-2">{stage.description}</div> */}
-                <div className="flex justify-between mt-2">
-                  <div className="m-1 text-sm text-gray-600">{stage.category}</div>
-                  <div className="text-teal-600 font-semibold">{startMonth}/{startDay} {startHour} : {startMinutes} ~ {endHour} : {endMinutes}</div>
-                </div>
-                {/* <button type="button" onClick={() => setPopHidden(!popHidden)} className="bg-black" >ああああ</button> */}
-                <div className="mx-auto max-w-2xl">
-                  <StageModal title={stage.name} description={stage.description} hidden={popHidden} setHidden={setPopHidden} />
-                </div>
-              </div>
+              </StageModal>
           )})}
         </div>
       </div>
@@ -132,6 +130,14 @@ const StageList: React.FC<StageListProps> = ({ stages, className }: StageListPro
 export default function Stage() {
     const { info } = useInfo();
     const stages: Stage[] = info?.stages || [];
+    // stage.firstがtrueのものだけを抽出
+    const firstStages: Stage[] = stages.filter(stage => stage.first);
+    const secondStages: Stage[] = stages.filter(stage => !stage.first);
+    const [visibleStages, setVisibleStages] = useState<Stage[]>(firstStages);
+    const pathname = usePathname();
+    useEffect(() => {
+      setVisibleStages(firstStages);
+    }, [pathname]);
 
     return (
       <div className="">
@@ -139,7 +145,7 @@ export default function Stage() {
         <div className="h-[35vh] absolute z-10 w-full">
           <div className="flex flex-col text-white mx-auto max-w-2xl lg:max-w-7xl px-8 lg:px-16 justify-center h-full gap-4">
             <div className="text-7xl xl:text-8xl font-extralight">STAGE</div>
-            <div className="max-w-md"></div>
+            <div className="max-w-sm ml-1 italic">We're looking for seeing you !! 👋</div>
           </div>
         </div>
         <div className="flex items-center justify-center">

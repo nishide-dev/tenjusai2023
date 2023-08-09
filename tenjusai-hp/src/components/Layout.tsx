@@ -1,0 +1,21 @@
+'use client';
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import Supporters from '@/components/Supporters'
+import { NextUIProvider } from "@nextui-org/react";
+import React from 'react';
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+    return (
+        <body className="scrollbar-hide">
+          <Header />
+          <main>
+            <NextUIProvider>
+            {children}
+            </NextUIProvider>
+          </main>
+          <Supporters />
+          <Footer />
+        </body>
+    )
+}

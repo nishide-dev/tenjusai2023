@@ -32,7 +32,7 @@ const Supporters: React.FC = () => {
                     <div className="container flex flex-wrap justify-center mx-auto my-5">
                         {
                             banners.map((banner, index) => (
-                                <Link href={banner.link || ""} key={banner.name} className=" shadow-xl" >
+                                <Link href={banner.link || ""} key={banner.name} className="" >
                                     <FadeInToUp>
                                         <Image src={banner.thumbnail_link} alt={banner.alt} height={600} width={600} />
                                     </FadeInToUp>
@@ -41,7 +41,7 @@ const Supporters: React.FC = () => {
                         }
                     </div>
                 </div>
-                <div className="mt-20 flex flex-col items-center justify-center mx-auto lg:mx-32 xl:mx-64 2xl:mx-96">
+                <div className="mt-20 flex flex-col items-center justify-center mx-auto lg:mx-32 xl:mx-64 2xl:mx-[24rem]">
                     <FadeIn>
                         <div className="text-2xl font-semibold text-slate-600 mb-6">派遣企業の会一覧</div>
                     </FadeIn>

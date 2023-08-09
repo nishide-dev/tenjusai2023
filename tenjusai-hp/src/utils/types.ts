@@ -29,6 +29,7 @@ export type Stage = {
     main: boolean;
     start: string;
     end: string;
+    first: boolean;
 }
 
 export type Info = {
