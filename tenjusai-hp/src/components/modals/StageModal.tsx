@@ -45,16 +45,16 @@ const StageModal: React.FC<StageModalProps> = ({ stage, children}: StageModalPro
                         <div className="mx-auto">
                             <Image as={NextImage} layout="responsive" className="rounded-sm max-h-[20rem]" src={stage.thumbnail_link} alt={stage.name} width={600} height={600} />
                         </div>
-                        <div className="">
-                            <div className="text-teal-600 font-semibold text-md md:text-lg lg:text-xl xl:text-xl mt-1">開催日時</div>
-                            <div className="text-gray-600 text-md md:text-lg lg:text-xl xl:text-xl mt-2">{startMonth}月{startDay}日 {startHour}:{startMinutes} ~ {endHour}:{endMinutes}</div>
+                        <div className="flex justify-start gap-6">
+                            <div className="text-teal-600 font-semibold text-sm lg:text-md xl:text-lg">開催日時</div>
+                            <div className="text-gray-600 text-sm lg:text-md xl:text-lg">{startMonth}月{startDay}日 {startHour}:{startMinutes} ~ {endHour}:{endMinutes}</div>
                         </div>
-                        <div className="">
-                            <div className="text-teal-600 font-semibold text-md md:text-lg lg:text-xl xl:text-xl mt-1">内容</div>
-                            <div className="text-gray-600 text-md md:text-lg lg:text-xl xl:text-xl mt-2">{stage.category}</div>
+                        <div className="flex justify-start gap-6">
+                            <div className="text-teal-600 font-semibold text-sm lg:text-md xl:text-lg">内容</div>
+                            <div className="text-gray-600 text-sm lg:text-md xl:text-lg">{stage.category}</div>
                         </div>
                         <div className="mb-6">
-                            <div className="text-teal-600 font-semibold text-md md:text-lg lg:text-xl xl:text-xl mt-1">詳細</div>
+                            <div className="text-teal-600 font-semibold text-sm lg:text-md xl:text-lg mt-1">詳細</div>
                             <div className="text-gray-600 text-sm lg:text-md xl:text-lg mt-2">{stage.description}</div>
                         </div>
                     </ModalBody>
