@@ -43,7 +43,7 @@ const StageModal: React.FC<StageModalProps> = ({ stage, children}: StageModalPro
                         
                         <hr className="h-2 text-black" />
                         <div className="mx-auto">
-                            <Image as={NextImage} layout="responsive" className="rounded-sm max-h-[20rem]" src={stage.thumbnail_link} alt={stage.name} width={600} height={600} />
+                            <Image as={NextImage} className="rounded-sm" src={stage.thumbnail_link} alt={stage.name} width={600} height={600} />
                         </div>
                         <div className="flex justify-start gap-6">
                             <div className="text-teal-600 font-semibold text-sm lg:text-md xl:text-lg">開催日時</div>
