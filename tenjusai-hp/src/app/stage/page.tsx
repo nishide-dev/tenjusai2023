@@ -145,7 +145,7 @@ export default function Stage() {
         <div className="h-[35vh] absolute z-10 w-full">
           <div className="flex flex-col text-white mx-auto max-w-2xl lg:max-w-7xl px-8 lg:px-16 justify-center h-full gap-4">
             <div className="text-7xl xl:text-8xl font-extralight">STAGE</div>
-            <div className="max-w-sm ml-1 italic">We're looking for seeing you !! 👋</div>
+            <div className="max-w-sm ml-1 italic">We're looking forward to seeing you !! 👋</div>
           </div>
         </div>
         <div className="flex items-center justify-center">
