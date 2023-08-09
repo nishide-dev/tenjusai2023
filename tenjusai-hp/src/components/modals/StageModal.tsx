@@ -28,12 +28,12 @@ const StageModal: React.FC<StageModalProps> = ({ stage, children}: StageModalPro
     return (
         <>
             <div onClick={onOpen} className="">{children}</div>
-            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-                <ModalContent>
+            <Modal className="" isOpen={isOpen} onOpenChange={onOpenChange} scrollBehavior="inside">
+                <ModalContent className="">
                 {(onClose) => (
                     <>
                     <ModalHeader className="flex flex-col gap-1"></ModalHeader>
-                    <ModalBody>
+                    <ModalBody className="">
                         <div className="flex justify-between">
                             <h2 className="text-2xl font-semibold text-gray-700">{stage.name}</h2>
                             <div className="bg-teal-600 rounded-full text-center p-1 px-5 text-sm m-1">
