@@ -2,7 +2,7 @@
 import Router from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import fetchJson, { FetchError } from "./fetchJson";
-import { Info, Supporter, Banner, Dispatcher, Stage } from "./types";
+import { Info, Supporter, Banner, Dispatcher, Stage, Food } from "./types";
 
 export default function useInfo() {
     const [info, setInfo] = useState<Info | null>({
@@ -10,6 +10,7 @@ export default function useInfo() {
         banners: [],
         dispatchers: [],
         stages: [],
+        foods: [],
     });
 
     useEffect(() => {
@@ -101,10 +102,33 @@ export default function useInfo() {
                 }
             }
         };
+        const getFoods = async () => {
+            try {
+                const foods = await fetchJson<Food[]>("/api/v1/info/foods");
+                // infoにfoodsを追加
+                setInfo((prev) => {
+                    if (prev) {
+                        return {
+                            ...prev,
+                            foods: foods,
+                        };
+                    }
+                    return null;
+                });
+
+            } catch (error) {
+                if (error instanceof FetchError) {
+                    console.error(error.data);
+                } else {
+                    console.error(error);
+                }
+            }
+        };
         getSupporters();
         getBanners();
         getDispatchers();
         getStages();
+        getFoods();
     }, []);
 
     return {

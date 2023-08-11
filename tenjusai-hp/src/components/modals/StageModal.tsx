@@ -1,7 +1,7 @@
 'use client';
 import { useState } from "react";
 import { Stage } from "@/utils/types";
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
 import NextImage from "next/image";
 
@@ -46,15 +46,15 @@ const StageModal: React.FC<StageModalProps> = ({ stage, children}: StageModalPro
                             <Image as={NextImage} className="rounded-sm" src={stage.thumbnail_link} alt={stage.name} width={600} height={600} />
                         </div>
                         <div className="flex justify-start gap-6">
-                            <div className="text-teal-600 font-semibold text-sm lg:text-md xl:text-lg">開催日時</div>
-                            <div className="text-gray-600 text-sm lg:text-md xl:text-lg">{startMonth}月{startDay}日 {startHour}:{startMinutes} ~ {endHour}:{endMinutes}</div>
+                            <div className="text-teal-600 font-semibold text-md lg:text-md xl:text-lg">開催日時</div>
+                            <div className="text-gray-600 text-md lg:text-md xl:text-lg">{startMonth}月{startDay}日 {startHour}:{startMinutes} ~ {endHour}:{endMinutes}</div>
                         </div>
                         <div className="flex justify-start gap-6">
-                            <div className="text-teal-600 font-semibold text-sm lg:text-md xl:text-lg">内容</div>
-                            <div className="text-gray-600 text-sm lg:text-md xl:text-lg">{stage.category}</div>
+                            <div className="text-teal-600 font-semibold text-md lg:text-md xl:text-lg">内容</div>
+                            <div className="text-gray-600 text-md lg:text-md xl:text-lg">{stage.category}</div>
                         </div>
                         <div className="mb-6">
-                            <div className="text-teal-600 font-semibold text-sm lg:text-md xl:text-lg">詳細</div>
+                            <div className="text-teal-600 font-semibold text-md lg:text-md xl:text-lg">詳細</div>
                             <div className="text-gray-600 text-md lg:text-md xl:text-lg mt-2">{stage.description}</div>
                         </div> 
                     </ModalBody>

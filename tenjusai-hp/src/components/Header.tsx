@@ -13,7 +13,7 @@ const routes: Route[] = [
     { href: '/stage', title: 'ステージ' },
     { href: '/comingsoon', title: 'イベント' },
     { href: '/comingsoon', title: '研究室' },
-    { href: '/comingsoon', title: '屋台' },
+    { href: '/yatai', title: '屋台' },
 ];
 
 export default function Header() {
@@ -21,20 +21,28 @@ export default function Header() {
     const [textColor, setTextColor] = useState('text-gray-800');
     const pathname = usePathname();
 
+    const [showMenu, setShowMsnu] = useState(false);
+
     // pageが変わったら色を変える
     useEffect(() => {
         if (pathname === '/' || pathname === '/comingsoon') {
             setBgColor('bg-tenjusaiHero');
             setTextColor('text-gray-700');
         } else if (pathname === '/stage') {
+            if (showMenu) {
+                setBgColor('bg-white');
+                setTextColor('text-gray-800');
+            } else {
+                setBgColor('bg-white');
+                setTextColor('text-gray-100');
+            }
+        } else if (pathname === '/yatai') {
             setBgColor('bg-white');
-            setTextColor('text-gray-100');
+            setTextColor('text-gray-800');
         } else {
             setBgColor('bg-white');
         }
-    }, [pathname]);
-
-    const [showMenu, setShowMsnu] = useState(false);
+    }, [pathname, showMenu]);
 
     function handleToggle() {
         if (!showMenu) {
@@ -49,7 +57,7 @@ export default function Header() {
 
     function BlackScreen() {
         return (
-            <div className={`fixed ${showMenu ? "z-10" : "h-0"} inset-0 bg-black opacity-50`} onClick={handleToggle}></div>
+            <div className={`fixed ${showMenu ? "z-20" : "h-0"} inset-0 bg-black opacity-50`} onClick={handleToggle}></div>
         );
     }
 

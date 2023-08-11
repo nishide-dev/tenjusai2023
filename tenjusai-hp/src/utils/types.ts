@@ -32,9 +32,19 @@ export type Stage = {
     first: boolean;
 }
 
+export type Food = {
+    id: number;
+    name: string;
+    description?: string;
+    thumbnail_link: string;
+    content: string;
+    price: string;
+}
+
 export type Info = {
     supporters: Supporter[];
     banners: Banner[];
     dispatchers: Dispatcher[];
     stages: Stage[];
+    foods: Food[];
 }

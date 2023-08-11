@@ -535,7 +535,7 @@ const foodsJson = {
           "enable": false,
           "minimumValue": 1
         },
-        "value": 16,
+        "value": 3,
         "animation": {
           "count": 0,
           "enable": false,
