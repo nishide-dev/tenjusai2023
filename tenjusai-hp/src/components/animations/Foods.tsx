@@ -3,7 +3,7 @@ const foodsJson = {
     "autoPlay": true,
     "background": {
       "color": {
-        "value": "#fff"
+        "value": "#f472b6"
       },
       "image": "",
       "position": "50% 50%",

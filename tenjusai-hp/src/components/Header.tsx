@@ -40,8 +40,13 @@ export default function Header() {
             setBgColor('bg-white');
             setTextColor('text-gray-800');
         } else if (pathname === '/yatai') {
-            setBgColor('bg-white');
-            setTextColor('text-gray-800');
+            if (showMenu) {
+                setBgColor('bg-white');
+                setTextColor('text-gray-800');
+            } else {
+                setBgColor('bg-white');
+                setTextColor('text-gray-100');
+            }
         } else {
             setBgColor('bg-white');
         }
@@ -71,6 +76,9 @@ export default function Header() {
             // スクロール位置が0なら opacity 0, それ以外は 100
             setOpacity(window.scrollY > 0 ? 100 : 0);
             if (pathname == '/stage') {
+                setTextColor(window.scrollY > 0 ? "text-gray-800" : "text-gray-100");
+                setBgColor(window.scrollY > 0 ? "bg-white" : "bg-gray-800");
+            } else if (pathname == '/yatai') {
                 setTextColor(window.scrollY > 0 ? "text-gray-800" : "text-gray-100");
                 setBgColor(window.scrollY > 0 ? "bg-white" : "bg-gray-800");
             }

@@ -7,15 +7,54 @@ import FoodModal from '@/components/modals/FoodModal';
 import useInfo from '@/utils/useInfo';
 import { Food } from '@/utils/types';
 
+const ScrollButton: React.FC = () => {
+
+    const handleScrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  
+    const handleScrollToBottom = () => {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    };
+  
+    const [opacity, setOpacity] = useState(0);
+  
+    useEffect(() => {
+        const handleScroll = () => {
+            // スクロール位置が0なら opacity 0, それ以外は 100
+            setOpacity(window.scrollY > 0 ? 100 : 0);
+        };
+  
+        // スクロールイベントリスナーを追加
+        window.addEventListener('scroll', handleScroll);
+  
+        // クリーンアップ関数でイベントリスナーを削除
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+  
+    return (
+      <>
+        <div className={`fixed ${opacity == 0 ? "-z-20" : "z-20"} right-4 bottom-10`}>
+          <div onClick={handleScrollToTop} className="w-12 h-12 bg-pink-400 rounded-full cursor-pointer animate-bounce flex items-center justify-center mb-3 rotate-180">
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+        </div>
+      </>
+    );
+  };
+
 const FoodsList: React.FC = () => {
     const { info } = useInfo();
     const foods: Food[] = info?.foods || [];
     return (
-        <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
+        <div className="gap-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
         {foods.map((food, index) => (
             <FoodModal food={food} key={food.name} >
                 <button className="">
-                    <Card shadow="md" key={index} >
+                    <Card shadow="md" key={index} className=" sm:w-60 lg:h-64 lg:w-60 xl:w-72" >
                         <CardBody className="overflow-visible p-0">
                         <Image
                             isZoomed
@@ -48,20 +87,29 @@ const FoodsList: React.FC = () => {
 
 const Yatai: React.FC = () => {
     return (
-        <>
-            <div className="">
-                <div className="min-h-screen -z-10 bg-none fixed">
+        <div className="">
+            <ScrollButton />
+            <div className="h-[35vh] absolute z-10 w-full">
+                <div className="flex flex-col text-gray-100 mx-auto max-w-2xl lg:max-w-7xl px-8 lg:px-16 justify-center h-full gap-4">
+                    <div className="text-7xl xl:text-8xl font-semibold">やたい</div>
+                    <div className="max-w-sm ml-1 italic">今年は飲食OK！！🍧🍴</div>
+                </div>
+            </div>
+            <div className="flex items-center justify-center flex-col">
+                <div className="h-[35vh] -z-10 bg-none">
                     <Foods />
                 </div>
-                <div className="min-h-screen max-w-5xl mx-auto p-3">
-                    <div className="pt-20">
-                        <h2 className="text-4xl xl:text-5xl font-light text-gray-600 my-6">LIST OF <span className="text-pink-400">YATAI</span> 😋🍴</h2>
-                        {/* <p className="text-md font-normal text-gray-500 lg:text-lg mb-6">屋台情報を掲載しています。当日の出店内容について予告なく変更になる場合がございます。予めご了承ください。</p> */}
-                        <FoodsList />
+                <div className="bg-white w-full">
+                    <div className="min-h-screen max-w-7xl mx-auto p-3 bg-white">
+                        <div className="">
+                            <h2 className="text-4xl xl:text-5xl font-light text-gray-600 mt-12 mb-10">LIST OF <span className="text-pink-400">YATAI</span> 😋🍴</h2>
+                            {/* <p className="text-md font-normal text-gray-500 lg:text-lg mb-6">屋台情報を掲載しています。当日の出店内容について予告なく変更になる場合がございます。予めご了承ください。</p> */}
+                            <FoodsList />
+                        </div>
                     </div>
-                </div>  
+                </div>
             </div>
-        </>
+        </div>
     );
 }
 
