@@ -45,6 +45,16 @@ const StageModal: React.FC<StageModalProps> = ({ stage, children}: StageModalPro
                         <div className="mx-auto">
                             <Image as={NextImage} className="rounded-sm" src={stage.thumbnail_link} alt={stage.name} width={600} height={600} />
                         </div>
+                        {
+                            stage.id === 3 ? (
+                                <div className="flex justify-start gap-6">
+                                    <div className="text-red-600 font-semibold text-md lg:text-md xl:text-lg">注意</div>
+                                    <div className="text-red-600 text-md lg:text-md xl:text-lg">こちらのステージは撮影禁止となっております。予めご了承ください。</div>
+                                </div>
+                            ) : (
+                                <></>
+                            )
+                        }
                         <div className="flex justify-start gap-6">
                             <div className="text-teal-600 font-semibold text-md lg:text-md xl:text-lg">開催日時</div>
                             <div className="text-gray-600 text-md lg:text-md xl:text-lg">{startMonth}月{startDay}日 {startHour}:{startMinutes} ~ {endHour}:{endMinutes}</div>

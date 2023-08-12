@@ -117,6 +117,15 @@ const SecondButton: React.FC = () => {
   );
 };
 
+const NoMovieIcon: React.FC = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-700">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M12 18.75H4.5a2.25 2.25 0 01-2.25-2.25V9m12.841 9.091L16.5 19.5m-1.409-1.409c.407-.407.659-.97.659-1.591v-9a2.25 2.25 0 00-2.25-2.25h-9c-.621 0-1.184.252-1.591.659m12.182 12.182L2.909 5.909M1.5 4.5l1.409 1.409" />
+    </svg>
+  )
+}
+
+
 const StageList: React.FC<StageListProps> = ({ stages, firstStages, secondStages, className }: StageListProps) => {
   return (
     <div className={`bg-white w-full ${className}`}>
@@ -129,7 +138,7 @@ const StageList: React.FC<StageListProps> = ({ stages, firstStages, secondStages
           </div>
         </div>
 
-        <div className="text-md md:text-xl text-gray-600">イベント一覧を掲載しています。各ステージの詳細をタップしてご確認ください！</div>
+        <div className="text-md md:text-xl text-gray-600">イベント一覧を掲載しています。各ステージの詳細をタップしてご確認ください！出演者は予告なく変更になる場合がございます。予めご了承ください。</div>
         <div id="first" className="my-6 text-teal-600 font-semibold text-2xl md:text-3xl">9/9 (土)</div>
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
@@ -219,8 +228,19 @@ const StageList: React.FC<StageListProps> = ({ stages, firstStages, secondStages
                       </h3>
                       <p className="mt-1 text-sm text-gray-500"></p>
                     </div>
-                    <div className="bg-teal-600 rounded-full text-center p-1 px-5 text-sm m-1">
-                      <p className="text-sm font-medium text-gray-100">{stage.genre}</p>
+                    <div className="flex gap-1">
+                      {
+                        stage.id === 3 ? (
+                          <div className="bg-red-400 rounded-full p-1 px-1 m-1">
+                            <NoMovieIcon />
+                          </div>
+                        ) : (
+                          <></>
+                        )
+                      }
+                      <div className="bg-teal-600 rounded-full text-center p-1 px-5 text-sm m-1">
+                        <p className="text-sm font-medium text-gray-100">{stage.genre}</p>
+                      </div>
                     </div>
                   </div>
                   {/* <div className="text-gray-600 mt-2">{stage.description}</div> */}
@@ -251,7 +271,7 @@ const SpecialGuests: React.FC<SpecialGuestsProps> = ({ mainStages, className }: 
             <h4 className="bg-white text-sm font-bold text-gray-600 bg-opacity-80 mix-blend-screen px-2 py-1 ">スペシャルゲスト</h4>
             <h4 className="bg-white text-xl md:text-xl font-bold text-teal-600 bg-opacity-80 mix-blend-screen px-2 py-1 ">{stage.name}</h4>
           </CardHeader>
-          <img src={stage.thumbnail_link} alt={`Banner Image ${index + 1}`} className="w-full min-h-full max-h-[45vh] md:max-h-[30vh] md:min-w-full object-cover" />
+          <Image width={600} height={600} src={stage.thumbnail_link} alt={`Banner Image ${index + 1}`} className="w-full min-h-full max-h-[45vh] md:max-h-[35vh] md:min-w-full object-cover" />
         </Card>
       ))}
     </div>
