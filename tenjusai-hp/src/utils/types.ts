@@ -41,10 +41,24 @@ export type Food = {
     price: string;
 }
 
+export type Lab = {
+    id: number;
+    name: string;
+    description: string;
+    thumbnail_link: string;
+    place: string;
+    content: string;
+    first: boolean;
+    second: boolean;
+    first_date: string;
+    second_date: string;
+}
+
 export type Info = {
     supporters: Supporter[];
     banners: Banner[];
     dispatchers: Dispatcher[];
     stages: Stage[];
     foods: Food[];
+    labs: Lab[];
 }

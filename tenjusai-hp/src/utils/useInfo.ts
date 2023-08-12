@@ -2,7 +2,7 @@
 import Router from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import fetchJson, { FetchError } from "./fetchJson";
-import { Info, Supporter, Banner, Dispatcher, Stage, Food } from "./types";
+import { Info, Supporter, Banner, Dispatcher, Stage, Food, Lab } from "./types";
 
 export default function useInfo() {
     const [info, setInfo] = useState<Info | null>({
@@ -11,6 +11,7 @@ export default function useInfo() {
         dispatchers: [],
         stages: [],
         foods: [],
+        labs: [],
     });
 
     useEffect(() => {
@@ -124,11 +125,34 @@ export default function useInfo() {
                 }
             }
         };
+        const getLabs = async () => {
+            try {
+                const labs = await fetchJson<Lab[]>("/api/v1/info/labs");
+                // infoにlabsを追加
+                setInfo((prev) => {
+                    if (prev) {
+                        return {
+                            ...prev,
+                            labs: labs,
+                        };
+                    }
+                    return null;
+                });
+
+            } catch (error) {
+                if (error instanceof FetchError) {
+                    console.error(error.data);
+                } else {
+                    console.error(error);
+                }
+            }
+        };
         getSupporters();
         getBanners();
         getDispatchers();
         getStages();
         getFoods();
+        getLabs();
     }, []);
 
     return {

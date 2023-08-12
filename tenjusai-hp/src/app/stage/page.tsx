@@ -157,8 +157,8 @@ const StageList: React.FC<StageListProps> = ({ stages, firstStages, secondStages
             const endMinutes = end.getUTCMinutes().toString().padStart(2, '0');
             return (
               <StageModal stage={stage} key={stage.name}>
-                <div className="group relative">
-                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                <div className="group relative sm:h-88">
+                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 sm:h-60">
                     <Image
                       src={stage.thumbnail_link}
                       alt={stage.name}
@@ -208,8 +208,8 @@ const StageList: React.FC<StageListProps> = ({ stages, firstStages, secondStages
             const endMinutes = end.getUTCMinutes().toString().padStart(2, '0');
             return (
               <StageModal stage={stage} key={stage.name}>
-                <div className="group relative">
-                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                <div className="group relative sm:h-88">
+                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 sm:h-60">
                     <Image
                       src={stage.thumbnail_link}
                       alt={stage.name}

@@ -12,7 +12,7 @@ type Route = {
 const routes: Route[] = [
     { href: '/stage', title: 'ステージ' },
     { href: '/comingsoon', title: 'イベント' },
-    { href: '/comingsoon', title: '研究室' },
+    { href: '/lab', title: '研究室' },
     { href: '/yatai', title: '屋台' },
 ];
 
@@ -36,6 +36,9 @@ export default function Header() {
                 setBgColor('bg-white');
                 setTextColor('text-gray-100');
             }
+        } else if (pathname === '/lab') {
+            setBgColor('bg-white');
+            setTextColor('text-gray-800');
         } else if (pathname === '/yatai') {
             setBgColor('bg-white');
             setTextColor('text-gray-800');
