@@ -54,7 +54,7 @@ const FoodsList: React.FC = () => {
         {foods.map((food, index) => (
             <FoodModal food={food} key={food.name} >
                 <button className="">
-                    <Card shadow="md" key={index} className=" sm:w-60 lg:h-64 lg:w-60 xl:w-72" >
+                    <Card shadow="sm" key={index} className=" sm:w-60 lg:h-64 lg:w-60 xl:w-72" >
                         <CardBody className="overflow-visible p-0">
                         <Image
                             isZoomed
@@ -91,7 +91,7 @@ const Yatai: React.FC = () => {
             <ScrollButton />
             <div className="h-[35vh] absolute z-10 w-full">
                 <div className="flex flex-col text-gray-100 mx-auto max-w-2xl lg:max-w-7xl px-8 lg:px-16 justify-center h-full gap-4">
-                    <div className="text-7xl xl:text-8xl font-semibold">やたい</div>
+                    <div className="text-6xl xl:text-7xl font-semibold">やたい</div>
                     <div className="max-w-sm ml-1 italic">今年は飲食OK！！🍧🍴</div>
                 </div>
             </div>
@@ -100,9 +100,9 @@ const Yatai: React.FC = () => {
                     <Foods />
                 </div>
                 <div className="bg-white w-full">
-                    <div className="min-h-screen max-w-7xl mx-auto p-3 bg-white">
+                    <div className=" max-w-7xl mx-auto p-3 bg-white">
                         <div className="">
-                            <h2 className="text-4xl xl:text-5xl font-light text-gray-600 mt-12 mb-10">LIST OF <span className="text-pink-400">YATAI</span> 😋🍴</h2>
+                            <h2 className="text-3xl xl:text-4xl font-light text-gray-600 mt-12 mb-10">LIST OF <span className="text-pink-400">YATAI</span> 😋🍴</h2>
                             {/* <p className="text-md font-normal text-gray-500 lg:text-lg mb-6">屋台情報を掲載しています。当日の出店内容について予告なく変更になる場合がございます。予めご了承ください。</p> */}
                             <FoodsList />
                         </div>

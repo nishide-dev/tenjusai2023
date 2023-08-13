@@ -1,4 +1,3 @@
-
 export type Supporter = {
     id: number;
     name: string;
@@ -54,6 +53,26 @@ export type Lab = {
     second_date: string;
 }
 
+export type Event = {
+    id: number;
+    name: string;
+    description: string;
+    thumbnail_link: string;
+    place: string;
+    first: boolean;
+    second: boolean;
+    first_date: string;
+    second_date: string;
+    needs_reservation: boolean;
+    reservation_notes?: string;
+}
+
+export type ImageLink = {
+    id: number;
+    name: string;
+    thumbnail_link: string;
+}
+
 export type Info = {
     supporters: Supporter[];
     banners: Banner[];
@@ -61,4 +80,6 @@ export type Info = {
     stages: Stage[];
     foods: Food[];
     labs: Lab[];
+    events: Event[];
+    image_links: ImageLink[];
 }

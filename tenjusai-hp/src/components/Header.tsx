@@ -11,7 +11,7 @@ type Route = {
 
 const routes: Route[] = [
     { href: '/stage', title: 'ステージ' },
-    { href: '/comingsoon', title: 'イベント' },
+    { href: '/event', title: 'イベント' },
     { href: '/lab', title: '研究室' },
     { href: '/yatai', title: '屋台' },
 ];
@@ -33,12 +33,20 @@ export default function Header() {
                 setBgColor('bg-white');
                 setTextColor('text-gray-800');
             } else {
-                setBgColor('bg-white');
-                setTextColor('text-gray-100');
+                if (window.scrollY > 0) {
+                    setBgColor('bg-white');
+                    setTextColor('text-gray-800');
+                } else {
+                    setBgColor('bg-white');
+                    setTextColor('text-gray-100');
+                }
             }
+        } else if (pathname === '/event') {
+            setBgColor('bg-orange-500');
+            setTextColor('text-gray-50');
         } else if (pathname === '/lab') {
-            setBgColor('bg-white');
-            setTextColor('text-gray-800');
+            setBgColor('bg-blue-800');
+            setTextColor('text-gray-50');
         } else if (pathname === '/yatai') {
             if (showMenu) {
                 setBgColor('bg-white');

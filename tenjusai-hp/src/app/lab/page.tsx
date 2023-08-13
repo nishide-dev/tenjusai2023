@@ -3,13 +3,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useInfo from "@/utils/useInfo";
-import { Info, Stage, Lab } from "@/utils/types";
-import Fireworks from "@/components/animations/Fireworks";
+import { Info, Lab } from "@/utils/types";
 import { FadeInToUp } from "@/components/animations/FadeInAnimation";
 import LabModal from "@/components/modals/LabModal";
 import { Tabs, Tab, Card, CardBody, Divider, CardHeader } from "@nextui-org/react";
-import { usePathname } from "next/navigation";
-
+import CollisionParticles from "@/components/animations/CollisionParticles";
 
 interface LabListProps {
   labs: Lab[];
@@ -124,7 +122,7 @@ const LabList: React.FC<LabListProps> = ({ labs, className }: LabListProps) => {
   )
 }
 
-export default function Stage() {
+export default function Lab() {
     const { info } = useInfo();
     const labs: Lab[] = info?.labs || [];
 
@@ -132,13 +130,14 @@ export default function Stage() {
       <div className="">
         <ScrollButton />
         <div className="h-[35vh] absolute z-10 w-full">
-          <div className="flex flex-col text-gray-900 mx-auto max-w-2xl lg:max-w-7xl px-8 lg:px-16 justify-center h-full gap-4">
+          <div className="flex flex-col text-gray-50 mx-auto max-w-2xl lg:max-w-7xl px-8 lg:px-16 justify-center h-full gap-4">
             <div className="text-7xl xl:text-8xl font-bold">LAB</div>
-            <div className="max-w-sm ml-1 italic">研究室紹介で科学の面白さを体験しよう！!🔬💕</div>
+            <div className="max-w-sm ml-1 italic">研究室紹介で科学の面白さを体験しよう！!🔬✨</div>
           </div>
         </div>
         <div className="flex items-center justify-center flex-col">
-          <div className="h-[35vh] -z-10 bg-white">
+          <div className="h-[35vh] -z-10">
+            <CollisionParticles />
           </div>
           <LabList labs={labs} className="" />
         </div>

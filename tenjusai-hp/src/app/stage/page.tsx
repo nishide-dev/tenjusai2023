@@ -268,8 +268,8 @@ const SpecialGuests: React.FC<SpecialGuestsProps> = ({ mainStages, className }: 
         {mainStages.map((stage, index) => ( 
         <Card key={index} className="flex-none h-1/3 md:h-auto md:w-1/3 overflow-hidden rounded-none" isBlurred={true} >
           <CardHeader className="absolute z-10 bottom-1 flex-col !items-start">
-            <h4 className="bg-white text-sm font-bold text-gray-600 bg-opacity-80 mix-blend-screen px-2 py-1 ">スペシャルゲスト</h4>
-            <h4 className="bg-white text-xl md:text-xl font-bold text-teal-600 bg-opacity-80 mix-blend-screen px-2 py-1 ">{stage.name}</h4>
+            <h4 className="bg-white text-md font-bold text-gray-600 bg-opacity-80 mix-blend-screen px-2 py-1 ">スペシャルゲスト</h4>
+            <h4 className="bg-white text-2xl md:text-xl font-bold text-teal-600 bg-opacity-80 mix-blend-screen px-2 py-1 ">{stage.name}</h4>
           </CardHeader>
           <Image width={600} height={600} src={stage.thumbnail_link} alt={`Banner Image ${index + 1}`} className="w-full min-h-full max-h-[45vh] md:max-h-[35vh] md:min-w-full object-cover" />
         </Card>
@@ -304,7 +304,7 @@ export default function Stage() {
           <div className="h-[35vh] -z-10 bg-none">
             <Fireworks />
           </div>
-          <div className="bg-white flex flex-col items-center w-full">
+          <div className="bg-teal-600 flex flex-col items-center w-full">
             <SpecialGuests mainStages={mainStages} className="w-full" />
           </div>
           <StageList stages={stages} firstStages={firstStages} secondStages={secondStages} className="" />
