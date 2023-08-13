@@ -130,11 +130,13 @@ const EventList: React.FC<EventListProps> = ({ events, images, className }: Even
                                         <div>場所</div>
                                     </div>
                                 </div>
-                                <div className="flex">
-                                    <div className="text-orange-500 font-semibold text-lg underline underline-offset-auto">
-                                        {event.place}
+                                <Link href="/#headquarters">
+                                    <div className="flex">
+                                        <div className="text-orange-500 font-semibold text-lg underline underline-offset-auto">
+                                            {event.place}
+                                        </div>
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     </section>
@@ -178,11 +180,13 @@ const EventList: React.FC<EventListProps> = ({ events, images, className }: Even
                                         <div>場所</div>
                                     </div>
                                 </div>
-                                <div className="flex">
-                                    <div className="text-orange-500 font-semibold text-lg underline underline-offset-auto">
-                                        {event.place}
+                                <Link href="/#headquarters">
+                                    <div className="flex">
+                                        <div className="text-orange-500 font-semibold text-lg underline underline-offset-auto">
+                                            {event.place}
+                                        </div>
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                             <div className=" overflow-hidden max-h-[40rem] rounded-md shadow-xl">
                                 <Image className="w-full" src={event.thumbnail_link} alt={event.name} width={600} height={600} />
@@ -218,6 +222,12 @@ const EventList: React.FC<EventListProps> = ({ events, images, className }: Even
 export default function Event() {
     const { info } = useInfo();
     const events: Event[] = info?.events || [];
+    // event.idでソート
+    events.sort((a, b) => {
+        if (a.id < b.id) return -1;
+        if (a.id > b.id) return 1;
+        return 0
+    });
     const images: ImageLink[] = info?.image_links || [];
 
     return (
