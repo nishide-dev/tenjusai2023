@@ -198,7 +198,6 @@ const EventList: React.FC<EventListProps> = ({ events, images, className }: Even
                             <div className="">
                                 {
                                     images.map((image, index) => {
-                                        console.log(image);
                                         return (
                                             <div key={image.name} className="my-12 border rounded-md max-w-3xl mx-auto">
                                                 <Image className="w-full" src={image.thumbnail_link} alt={image.name} width={600} height={600} />
