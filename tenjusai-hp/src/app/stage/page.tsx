@@ -284,7 +284,19 @@ export default function Stage() {
     const stages: Stage[] = info?.stages || [];
     // stage.firstがtrueのものだけを抽出
     const firstStages: Stage[] = stages.filter(stage => stage.first);
+    // firstStagesをnew Date(stage.start)で昇順にソート
+    firstStages.sort((a, b) => {
+      const aDate = new Date(a.start);
+      const bDate = new Date(b.start);
+      return aDate.getTime() - bDate.getTime();
+    });
     const secondStages: Stage[] = stages.filter(stage => !stage.first);
+    // secondStagesをnew Date(stage.start)で昇順にソート
+    secondStages.sort((a, b) => {
+      const aDate = new Date(a.start);
+      const bDate = new Date(b.start);
+      return aDate.getTime() - bDate.getTime();
+    });
     const pathname = usePathname();
     // stage.mainがtrueのものだけを抽出
     const mainStages: Stage[] = stages.filter(stage => stage.main);

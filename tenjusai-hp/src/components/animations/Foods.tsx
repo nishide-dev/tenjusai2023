@@ -72,7 +72,7 @@ const foodsJson = {
           "speed": 1
         },
         "bounce": {
-          "distance": 200
+          "distance": 400
         },
         "bubble": {
           "distance": 400,
@@ -303,7 +303,7 @@ const foodsJson = {
           "height": 1080
         },
         "limit": 0,
-        "value": 80
+        "value": 120
       },
       "opacity": {
         "random": {
@@ -535,7 +535,7 @@ const foodsJson = {
           "enable": false,
           "minimumValue": 1
         },
-        "value": 3,
+        "value": 20,
         "animation": {
           "count": 0,
           "enable": false,
