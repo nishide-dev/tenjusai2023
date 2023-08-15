@@ -89,7 +89,7 @@ const EventList: React.FC<EventListProps> = ({ events, images, className }: Even
                                         <>
                                             <div className="flex items-center mb-4">
                                                 <div className="flex items-center justify-center text-white text-md font-bold bg-orange-500 rounded-md px-3 py-1">
-                                                    <div>要予約</div>
+                                                    <div>要整理券</div>
                                                 </div>
                                             </div>
                                             <div className="text-orange-500 font-semibold text-lg mb-3">

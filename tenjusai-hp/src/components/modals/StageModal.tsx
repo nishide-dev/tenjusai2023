@@ -46,7 +46,7 @@ const StageModal: React.FC<StageModalProps> = ({ stage, children}: StageModalPro
                         </div>
                         <div className="flex flex-col gap-2 m-4">
 
-                            {
+                            {/* {
                                 stage.id === 3 ? (
                                     <div className="flex justify-start gap-6">
                                         <div className="text-red-600 font-semibold text-md lg:text-md xl:text-lg">注意</div>
@@ -55,7 +55,7 @@ const StageModal: React.FC<StageModalProps> = ({ stage, children}: StageModalPro
                                 ) : (
                                     <></>
                                 )
-                            }
+                            } */}
                             <div className="flex justify-start gap-6">
                                 <div className="text-teal-600 font-semibold text-md lg:text-md xl:text-lg">開催日時</div>
                                 <div className="text-gray-600 text-md lg:text-md xl:text-lg">{startMonth}月{startDay}日 {startHour}:{startMinutes} ~ {endHour}:{endMinutes}</div>
