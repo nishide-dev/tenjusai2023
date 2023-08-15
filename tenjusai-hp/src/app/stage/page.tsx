@@ -237,7 +237,7 @@ const StageList: React.FC<StageListProps> = ({ stages, firstStages, secondStages
                         ) : (
                           <></>
                         )
-                      } */}
+                      } */ }
                       <div className="bg-teal-600 rounded-full text-center p-1 px-5 text-sm m-1">
                         <p className="text-sm font-medium text-gray-100">{stage.genre}</p>
                       </div>
