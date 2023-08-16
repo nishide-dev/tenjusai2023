@@ -2,7 +2,7 @@
 import Router from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import fetchJson, { FetchError } from "./fetchJson";
-import { Info, Supporter, Banner, Dispatcher, Stage } from "./types";
+import { Info, Supporter, Banner, Dispatcher, Stage, Food, Lab, Event, ImageLink } from "./types";
 
 export default function useInfo() {
     const [info, setInfo] = useState<Info | null>({
@@ -10,6 +10,10 @@ export default function useInfo() {
         banners: [],
         dispatchers: [],
         stages: [],
+        foods: [],
+        labs: [],
+        events: [],
+        image_links: [],
     });
 
     useEffect(() => {
@@ -101,10 +105,102 @@ export default function useInfo() {
                 }
             }
         };
+        const getFoods = async () => {
+            try {
+                const foods = await fetchJson<Food[]>("/api/v1/info/foods");
+                // infoにfoodsを追加
+                setInfo((prev) => {
+                    if (prev) {
+                        return {
+                            ...prev,
+                            foods: foods,
+                        };
+                    }
+                    return null;
+                });
+
+            } catch (error) {
+                if (error instanceof FetchError) {
+                    console.error(error.data);
+                } else {
+                    console.error(error);
+                }
+            }
+        };
+        const getLabs = async () => {
+            try {
+                const labs = await fetchJson<Lab[]>("/api/v1/info/labs");
+                // infoにlabsを追加
+                setInfo((prev) => {
+                    if (prev) {
+                        return {
+                            ...prev,
+                            labs: labs,
+                        };
+                    }
+                    return null;
+                });
+
+            } catch (error) {
+                if (error instanceof FetchError) {
+                    console.error(error.data);
+                } else {
+                    console.error(error);
+                }
+            }
+        };
+        const getEvents = async () => {
+            try {
+                const events = await fetchJson<Event[]>("/api/v1/info/events");
+                // infoにeventsを追加
+                setInfo((prev) => {
+                    if (prev) {
+                        return {
+                            ...prev,
+                            events: events,
+                        };
+                    }
+                    return null;
+                });
+
+            } catch (error) {
+                if (error instanceof FetchError) {
+                    console.error(error.data);
+                } else {
+                    console.error(error);
+                }
+            }
+        };
+        const getImageLinks = async () => {
+            try {
+                const image_links = await fetchJson<ImageLink[]>("/api/v1/info/images");
+                // infoにimage_linksを追加
+                setInfo((prev) => {
+                    if (prev) {
+                        return {
+                            ...prev,
+                            image_links: image_links,
+                        };
+                    }
+                    return null;
+                });
+                
+            } catch (error) {
+                if (error instanceof FetchError) {
+                    console.error(error.data);
+                } else {
+                    console.error(error);
+                }
+            }
+        };
         getSupporters();
         getBanners();
         getDispatchers();
         getStages();
+        getFoods();
+        getLabs();
+        getEvents();
+        getImageLinks();
     }, []);
 
     return {

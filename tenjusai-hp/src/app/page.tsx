@@ -7,6 +7,7 @@ import AboutUs from '@/components/about/AboutUs';
 import MainSchedule from '@/components/schedule/MainSchedule';
 import Access from '@/components/map/Access';
 import useInfo from '@/utils/useInfo';
+import Headquarters from '@/components/ campus/Headquarters';
 
 interface MarqueeProps {
   text: string;
@@ -111,6 +112,7 @@ export default function Home() {
       </div>
       <AboutUs />
       {/* <MainSchedule /> */}
+      <Headquarters />
       <Access />
     </>
   )

@@ -10,10 +10,10 @@ type Route = {
 };
 
 const routes: Route[] = [
-    { href: '/comingsoon', title: 'ステージ' },
-    { href: '/comingsoon', title: 'イベント' },
-    { href: '/comingsoon', title: '研究室' },
-    { href: '/comingsoon', title: '屋台' },
+    { href: '/stage', title: 'ステージ' },
+    { href: '/event', title: 'イベント' },
+    { href: '/lab', title: '研究室' },
+    { href: '/yatai', title: '屋台' },
 ];
 
 export default function Header() {
@@ -21,20 +21,44 @@ export default function Header() {
     const [textColor, setTextColor] = useState('text-gray-800');
     const pathname = usePathname();
 
+    const [showMenu, setShowMsnu] = useState(false);
+
     // pageが変わったら色を変える
     useEffect(() => {
         if (pathname === '/' || pathname === '/comingsoon') {
             setBgColor('bg-tenjusaiHero');
             setTextColor('text-gray-700');
         } else if (pathname === '/stage') {
-            setBgColor('bg-white');
-            setTextColor('text-gray-100');
+            if (showMenu) {
+                setBgColor('bg-white');
+                setTextColor('text-gray-800');
+            } else {
+                if (window.scrollY > 0) {
+                    setBgColor('bg-white');
+                    setTextColor('text-gray-800');
+                } else {
+                    setBgColor('bg-white');
+                    setTextColor('text-gray-100');
+                }
+            }
+        } else if (pathname === '/event') {
+            setBgColor('bg-orange-500');
+            setTextColor('text-gray-50');
+        } else if (pathname === '/lab') {
+            setBgColor('bg-blue-800');
+            setTextColor('text-gray-50');
+        } else if (pathname === '/yatai') {
+            if (showMenu) {
+                setBgColor('bg-white');
+                setTextColor('text-gray-800');
+            } else {
+                setBgColor('bg-white');
+                setTextColor('text-gray-100');
+            }
         } else {
             setBgColor('bg-white');
         }
-    }, [pathname]);
-
-    const [showMenu, setShowMsnu] = useState(false);
+    }, [pathname, showMenu]);
 
     function handleToggle() {
         if (!showMenu) {
@@ -49,7 +73,7 @@ export default function Header() {
 
     function BlackScreen() {
         return (
-            <div className={`fixed ${showMenu ? "z-10" : "h-0"} inset-0 bg-black opacity-50`} onClick={handleToggle}></div>
+            <div className={`fixed ${showMenu ? "z-20" : "h-0"} inset-0 bg-black opacity-50`} onClick={handleToggle}></div>
         );
     }
 
@@ -60,6 +84,9 @@ export default function Header() {
             // スクロール位置が0なら opacity 0, それ以外は 100
             setOpacity(window.scrollY > 0 ? 100 : 0);
             if (pathname == '/stage') {
+                setTextColor(window.scrollY > 0 ? "text-gray-800" : "text-gray-100");
+                setBgColor(window.scrollY > 0 ? "bg-white" : "bg-gray-800");
+            } else if (pathname == '/yatai') {
                 setTextColor(window.scrollY > 0 ? "text-gray-800" : "text-gray-100");
                 setBgColor(window.scrollY > 0 ? "bg-white" : "bg-gray-800");
             }
