@@ -6,6 +6,7 @@ import { Card, CardBody, CardFooter, Divider, Image } from "@nextui-org/react";
 import FoodModal from '@/components/modals/FoodModal';
 import useInfo from '@/utils/useInfo';
 import { Food } from '@/utils/types';
+import { FadeInToUp } from '@/components/animations/FadeInAnimation';
 
 const ScrollButton: React.FC = () => {
 
@@ -53,32 +54,35 @@ const FoodsList: React.FC = () => {
         <div className="gap-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
         {foods.map((food, index) => (
             <FoodModal food={food} key={food.name} >
-                <button className="">
-                    <Card shadow="sm" key={index} className=" sm:w-60 lg:h-64 lg:w-60 xl:w-72" >
-                        <CardBody className="overflow-visible p-0">
-                        <Image
-                            isZoomed
-                            shadow="sm"
-                            radius="lg"
-                            width="100%"
-                            alt={food.name}
-                            className="w-full h-[160px] object-cover"
-                            src={food.thumbnail_link}
-                        />
-                        </CardBody>
-                        <CardFooter className="flex flex-col text-start gap-2 min-h-[7rem]">
-                            <div className="text-small flex-col lg:flex-row w-full justify-between">
-                                <b className="text-gray-600">{food.name}</b>
-                                <p className="text-default-500">{food.price}</p>
-                            </div>
-                            {/* <div className="text-small flex w-full justify-between">
-                                <b>{food.name}</b>
-                                <p className="text-default-500">{food.price}</p>
-                            </div> */}
+                <FadeInToUp className="">
+                    <button className="">
+                        <Card shadow="sm" key={index} className=" sm:w-60 lg:h-64 lg:w-60 xl:w-72" >
+                            <CardBody className="overflow-visible p-0">
+                            <Image
+                                isZoomed
+                                shadow="sm"
+                                radius="lg"
+                                width="100%"
+                                alt={food.name}
+                                className="w-full h-[160px] object-cover"
+                                src={food.thumbnail_link}
+                            />
+                            </CardBody>
+                            <CardFooter className="flex flex-col text-start gap-2 min-h-[7rem]">
+                                <div className="text-small flex-col lg:flex-row w-full justify-between">
+                                    <b className="text-gray-600">{food.name}</b>
+                                    <p className="text-default-500">{food.price}</p>
+                                </div>
+                                {/* <div className="text-small flex w-full justify-between">
+                                    <b>{food.name}</b>
+                                    <p className="text-default-500">{food.price}</p>
+                                </div> */}
 
-                        </CardFooter>
-                    </Card>
-                </button>
+                            </CardFooter>
+                        </Card>
+                    </button>
+                </FadeInToUp>
+
             </FoodModal>
         ))}
         </div>

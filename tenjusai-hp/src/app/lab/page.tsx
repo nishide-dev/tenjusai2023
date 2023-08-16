@@ -77,7 +77,7 @@ const LabList: React.FC<LabListProps> = ({ labs, className }: LabListProps) => {
           {labs.map((lab) => {
             return (
               <LabModal lab={lab} key={lab.name}>
-                <div className="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 sm:h-80 group">
+                <FadeInToUp className="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 sm:h-80 group">
                   <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-800 lg:aspect-none group-hover:opacity-75 sm:h-44">
                       <Image
                         src={lab.thumbnail_link}
@@ -113,7 +113,7 @@ const LabList: React.FC<LabListProps> = ({ labs, className }: LabListProps) => {
                       </div>
                       <p className="mb-3 font-normal text-sm text-gray-300">{lab.content}</p>
                     </div>
-                </div>
+                </FadeInToUp>
               </LabModal>
           )})}
         </div>

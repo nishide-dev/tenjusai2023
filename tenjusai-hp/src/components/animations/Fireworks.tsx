@@ -176,7 +176,7 @@ const Fireworks: React.FC = () => {
 
             init={particlesInit}
             loaded={particlesLoaded}
-            height='100vh'
+            height='35vh'
             width='100vw'
         />
     );

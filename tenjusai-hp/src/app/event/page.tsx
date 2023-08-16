@@ -76,7 +76,7 @@ const EventList: React.FC<EventListProps> = ({ events, images, className }: Even
           {events.map((event, index) => {
             if (index % 2 == 0) {
                 return (
-                    <div key={event.name}>
+                    <FadeInToUp key={event.name}>
                     <section className="bg-white rounded-md mb-3 px-1 md:px-3 border md:border-none" >
                         <div className="gap-8 items-center py-8 px-2 md:px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
                             <div className=" overflow-hidden max-h-[40rem] rounded-md shadow-xl">
@@ -140,11 +140,11 @@ const EventList: React.FC<EventListProps> = ({ events, images, className }: Even
                             </div>
                         </div>
                     </section>
-                    </div>
+                    </FadeInToUp>
                 )
             } else {
                 return (
-                    <div key={event.name}>
+                    <FadeInToUp key={event.name}>
                     <section className="bg-white rounded-md mb-3 px-1 md:px-3 border md:border-none" key={event.name} >
                         <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
                             <div className="my-4 md:mt-0 px-2">
@@ -199,16 +199,16 @@ const EventList: React.FC<EventListProps> = ({ events, images, className }: Even
                                 {
                                     images.map((image, index) => {
                                         return (
-                                            <div key={image.name} className="my-12 border rounded-md max-w-3xl mx-auto">
+                                            <FadeInToUp key={image.name} className="my-12 border rounded-md max-w-3xl mx-auto">
                                                 <Image className="w-full" src={image.thumbnail_link} alt={image.name} width={600} height={600} />
-                                            </div>
+                                            </FadeInToUp>
                                         )
                                     })
                                 }
                             </div>
                         ) : null
                     }
-                    </div>
+                    </FadeInToUp>
                 )
             }})
         }
@@ -242,7 +242,7 @@ export default function Event() {
           <div className="h-[35vh] -z-10">
             <Bubbles />
           </div>
-          <EventList events={events} images={images} className="" />
+          <EventList events={events} images={images} className="min-h-screen" />
         </div>
       </div>
     )
