@@ -28,6 +28,8 @@ export const GET = async (request: Request) => {
             m2,
             shokuin,
             classroom,
+        }, {
+            status: 200,
         });
 
     } catch (error) {
