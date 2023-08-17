@@ -49,7 +49,8 @@ export default async function fetchJson<JSON = unknown>(
     body: body ? JSON.stringify(body) : undefined,
     ...additionalInit,
   };
-  const response = await fetch(input, init);
+  // const response = await fetch(input, init);
+  const response = await fetch(input, {cache: "no-cache"});
 
   const data = await response.json();
 
