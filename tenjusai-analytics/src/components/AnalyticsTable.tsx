@@ -4,7 +4,7 @@ import Link from 'next/link';
 import TableGrid from './TableGrid';
 
 async function getData() {
-    const res = await fetch(process.env.BASE_URL || "http://localhost:3000/api/v1/analytics", {cache: "no-cache"});
+    const res = await fetch("https://tenjusai2023-analytics/api/v1/analytics", {cache: "no-cache"});
    
     if (!res.ok) {
       throw new Error('Failed to fetch data')
