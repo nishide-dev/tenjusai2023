@@ -11,7 +11,7 @@ interface TableGridProps {
 const TableGrid: React.FC<TableGridProps> = ({ analytics }) => {
     return (
         <>
-            <Table removeWrapper aria-label="Example static collection table">
+            <Table className="" removeWrapper aria-label="Example static collection table">
             <TableHeader>
                 <TableColumn>NAME</TableColumn>
                 <TableColumn>DOMAIN</TableColumn>
@@ -20,10 +20,11 @@ const TableGrid: React.FC<TableGridProps> = ({ analytics }) => {
             <TableBody>
                 <TableRow key="1">
                 <TableCell>本番環境</TableCell>
-                <TableCell><Link className="hover:underline" href={analytics?.production[0] ? `https://${analytics?.production[0].domain}` : ""} >{analytics?.production[0] ? analytics?.production[0].domain : ""}</Link></TableCell>
+                {/* <TableCell><Link className="hover:underline" href={analytics?.production[0] ? `https://${analytics?.production[0].domain}` : ""} >{analytics?.production[0] ? analytics?.production[0].domain : ""}</Link></TableCell> */}
+                <TableCell>{analytics?.production[0] ? analytics?.production[0].domain : ""}</TableCell>
                 <TableCell>{analytics?.production.length}</TableCell>
                 </TableRow>
-                <TableRow key="2">
+                {/* <TableRow key="2">
                 <TableCell>開発環境</TableCell>
                 <TableCell><Link className="hover:underline" href={analytics?.development[0] ? `https://${analytics?.development[0].domain}` : ""} >{analytics?.development[0] ? analytics?.development[0].domain : ""}</Link></TableCell>
                 <TableCell>{analytics?.development.length}</TableCell>
@@ -67,7 +68,7 @@ const TableGrid: React.FC<TableGridProps> = ({ analytics }) => {
                 <TableCell>Classroom</TableCell>
                 <TableCell><Link className="hover:underline" href={analytics?.classroom[0] ? `https://${analytics?.classroom[0].domain}` : ""} >{analytics?.classroom[0] ? analytics?.classroom[0].domain : ""}</Link></TableCell>
                 <TableCell>{analytics?.classroom.length}</TableCell>
-                </TableRow>
+                </TableRow> */}
             </TableBody>
             </Table>  
         </>
