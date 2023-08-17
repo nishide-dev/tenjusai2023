@@ -2,9 +2,10 @@ import useAnalytics from '@/utils/useAnalytics';
 import { Analytics } from '@/utils/types';
 import Link from 'next/link';
 import TableGrid from './TableGrid';
+import { URL } from '@/utils/api';
 
 async function getData() {
-    const res = await fetch(`http${process.env.BASE_URL}/api/v1/analytics`, {cache: "no-cache"});
+    const res = await fetch(URL, {cache: "no-cache"});
    
     if (!res.ok) {
       throw new Error('Failed to fetch data')
