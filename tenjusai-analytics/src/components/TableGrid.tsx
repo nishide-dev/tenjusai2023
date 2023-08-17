@@ -5,7 +5,7 @@ import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from 
 import Link from 'next/link';
 
 interface TableGridProps {
-    analytics: Analytics;
+    analytics: Analytics | null;
 }
 
 const TableGrid: React.FC<TableGridProps> = ({ analytics }) => {
