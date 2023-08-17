@@ -83,3 +83,7 @@ export type Info = {
     events: Event[];
     image_links: ImageLink[];
 }
+
+export type Domain = {
+    domain: string;
+}
