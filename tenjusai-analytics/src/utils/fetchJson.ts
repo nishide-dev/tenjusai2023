@@ -44,13 +44,12 @@ export default async function fetchJson<JSON = unknown>(
 ): Promise<JSON> {
   const init: RequestInit = {
     method: method ?? "GET",
-    cache: "no-cache",
     headers: { "Content-Type": "application/json" },
     body: body ? JSON.stringify(body) : undefined,
     ...additionalInit,
   };
   // const response = await fetch(input, init);
-  const response = await fetch(input, {cache: "no-cache"});
+  const response = await fetch(input, {next: {revalidate: 1}});
 
   const data = await response.json();
 
