@@ -25,12 +25,12 @@ export default function Home() {
               <TableCell><Link className="hover:underline" href={analytics?.production[0].domain ? `https://${analytics?.production[0].domain}` : ""} >{analytics?.production[0].domain ? analytics?.production[0].domain : ""}</Link></TableCell>
               <TableCell>{analytics?.production.length}</TableCell>
             </TableRow>
-            {/* <TableRow key="2">
+            <TableRow key="2">
               <TableCell>開発環境</TableCell>
-              <TableCell><Link className="hover:underline" href={`https://${analytics?.development[0].domain}` || ""} >{analytics?.development[0].domain || ""}</Link></TableCell>
+              <TableCell><Link className="hover:underline" href={analytics?.development[0].domain ? `https://${analytics?.development[0].domain}` : ""} >{analytics?.development[0].domain ? analytics?.development[0].domain : ""}</Link></TableCell>
               <TableCell>{analytics?.development.length}</TableCell>
             </TableRow>
-            <TableRow key="3">
+            {/* <TableRow key="3">
               <TableCell>B1</TableCell>
               <TableCell><Link className="hover:underline" href={`https://${analytics?.b1[0].domain}` || ""} >{analytics?.b1[0].domain || ""}</Link></TableCell>
               <TableCell>{analytics?.b1.length}</TableCell>
