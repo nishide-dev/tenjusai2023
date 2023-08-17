@@ -49,6 +49,7 @@ export default async function fetchJson<JSON = unknown>(
     ...additionalInit,
   };
   const response = await fetch(input, init);
+  // const response = await fetch(input, "POST", { count: count });
 
   const data = await response.json();
 

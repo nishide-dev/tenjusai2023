@@ -1,3 +1,4 @@
+import Layout from '@/components/Layout'
 import './globals.css'
 
 export const metadata = {
@@ -12,9 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className="scrollbar-hide">
-        {children}
-      </body>
+      <Layout>{children}</Layout>
     </html>
   )
 }

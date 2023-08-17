@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 import supabase from '@/utils/supabase'
 
-export const GET = async (request: Request) => {
+export const POST = async (request: Request) => {
     const { data: production } = await supabase.from('accesses').select('*').eq('domain', 'tenjusai.jp')
     const { data: development } = await supabase.from('accesses').select('*').eq('domain', 'tenjusai2023-git-dev-nishide-dev.vercel.app')
     const { data: local } = await supabase.from('accesses').select('*').eq('domain', 'localhost:3000')
@@ -28,6 +28,8 @@ export const GET = async (request: Request) => {
             m2,
             shokuin,
             classroom,
+        }, {
+            status: 200,
         });
 
     } catch (error) {
