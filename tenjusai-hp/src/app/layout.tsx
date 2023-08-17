@@ -13,7 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <Layout>{children}</Layout>
+      {/* <Layout>{children}</Layout> */}
+      <body>
+        <div className="bg-tenjusaiHero min-h-screen flex flex-col items-center justify-center text-4xl text-tenjusaiGreen font-bold">公開準備中...</div>
+      </body>
     </html>
   )
 }
