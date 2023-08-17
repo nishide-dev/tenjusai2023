@@ -76,7 +76,7 @@ const FoodsList: React.FC = () => {
                                 {/* <div className="text-small flex w-full justify-between">
                                     <b>{food.name}</b>
                                     <p className="text-default-500">{food.price}</p>
-                                </div> */}
+                                </div> */ }
 
                             </CardFooter>
                         </Card>
