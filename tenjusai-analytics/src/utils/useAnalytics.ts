@@ -5,47 +5,38 @@ import fetchJson, { FetchError } from "./fetchJson";
 import { Access, Analytics } from "./types";
 import { usePathname } from "next/navigation"
 
+interface AnalyticsProps {
+    pathname: string;
+    count: number;
+}
 
-export default function useAnalytics() {
+export default function useAnalytics(
+    { pathname, count }: AnalyticsProps
+) {
     const [analytics, setAnalytics] = useState<Analytics | null>();
 
-    // useEffect(() => {
-    //     const getAnalytics = async () => {
-    //         try {
-    //             const analytics = await fetchJson<Analytics | null>("/api/v1/analytics");
-    //             setAnalytics(analytics);
+    const getAnalytics = async () => {
+        try {
+            const analytics = await fetchJson<Analytics | null>(pathname, "POST", { count: count });
+            setAnalytics(analytics);
 
-    //         } catch (error) {
-    //             if (error instanceof FetchError) {
-    //                 console.error(error.data);
-    //             } else {
-    //                 console.error(error);
-    //             }
-    //         }
-    //     };
-    //     getAnalytics();
-    // }, []);
-
-    // 2秒ごとにアナリティクスを更新
-    useEffect(() => {
-        const interval = setInterval(async () => {
-            try {
-                const analytics = await fetchJson<Analytics | null>("/api/v1/analytics");
-                setAnalytics(analytics);
-                
-            } catch (error) {
-                if (error instanceof FetchError) {
-                    console.error(error.data);
-                } else {
-                    console.error(error);
-                }
+        } catch (error) {
+            if (error instanceof FetchError) {
+                console.error(error.data);
+            } else {
+                console.error(error);
             }
-        }, 2000);
-        return () => clearInterval(interval);
-    }, []);
+        }
+    };
 
-    return {
-        analytics,
-    }
-        
+    useEffect(() => {
+        const interval = setInterval(() => {
+            getAnalytics();
+        }
+        , 2000);
+        return () => clearInterval(interval);
+    }, [count]);
+
+    return analytics;
+
 }

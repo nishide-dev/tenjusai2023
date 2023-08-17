@@ -3,10 +3,23 @@ import { Analytics } from '@/utils/types';
 import useAnalytics from '@/utils/useAnalytics';
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@nextui-org/react";
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
 
-  const { analytics } = useAnalytics();
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount(count + 1);
+      console.log(count);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [count]);
+
+  const analytics = useAnalytics({
+    pathname: process.env.NEXT_PUBLIC_ANALYTICS_PATHNAME || '',
+    count: count,
+  });
 
   return (
     <div className="flex min-h-screen flex-col items-start justify-start gap-10 pt-16 p-4 xl:p-24">
