@@ -22,8 +22,8 @@ export default function Home() {
           <TableBody>
             <TableRow key="1">
               <TableCell>本番環境</TableCell>
-              {/* <TableCell><Link className="hover:underline" href={`https://${analytics?.production[0].domain || ""}`} >{analytics?.production[0].domain || ""}</Link></TableCell> */}
-              <TableCell>{analytics?.production[0].domain || ""}</TableCell>
+              <TableCell><Link className="hover:underline" href={`https://${analytics?.production[0].domain || ""}`} >{analytics?.production[0].domain || ""}</Link></TableCell>
+              {/* <TableCell>{analytics?.production[0].domain || ""}</TableCell> */}
               <TableCell>{analytics?.production.length}</TableCell>
             </TableRow>
             {/* <TableRow key="2">
