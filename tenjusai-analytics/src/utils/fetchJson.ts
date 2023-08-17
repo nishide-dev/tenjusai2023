@@ -44,6 +44,7 @@ export default async function fetchJson<JSON = unknown>(
 ): Promise<JSON> {
   const init: RequestInit = {
     method: method ?? "GET",
+    cache: "no-cache",
     headers: { "Content-Type": "application/json" },
     body: body ? JSON.stringify(body) : undefined,
     ...additionalInit,
