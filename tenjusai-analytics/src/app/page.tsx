@@ -22,10 +22,11 @@ export default function Home() {
           <TableBody>
             <TableRow key="1">
               <TableCell>本番環境</TableCell>
-              <TableCell><Link className="hover:underline" href={`https://${analytics?.production[0].domain || ""}`} >{analytics?.production[0].domain || ""}</Link></TableCell>
+              {/* <TableCell><Link className="hover:underline" href={`https://${analytics?.production[0].domain || ""}`} >{analytics?.production[0].domain || ""}</Link></TableCell> */}
+              <TableCell>{analytics?.production[0].domain || ""}</TableCell>
               <TableCell>{analytics?.production.length}</TableCell>
             </TableRow>
-            <TableRow key="2">
+            {/* <TableRow key="2">
               <TableCell>開発環境</TableCell>
               <TableCell><Link className="hover:underline" href={`https://${analytics?.development[0].domain || ""}`} >{analytics?.development[0].domain || ""}</Link></TableCell>
               <TableCell>{analytics?.development.length}</TableCell>
@@ -69,7 +70,7 @@ export default function Home() {
             <TableCell>Classroom</TableCell>
             <TableCell><Link className="hover:underline" href={`https://${analytics?.classroom[0].domain || ""}`} >{analytics?.classroom[0].domain || ""}</Link></TableCell>
               <TableCell>{analytics?.classroom.length}</TableCell>
-            </TableRow>
+            </TableRow> */}
           </TableBody>
         </Table>
       </main>
