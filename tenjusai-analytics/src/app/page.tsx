@@ -12,7 +12,7 @@ export default function Home() {
     const interval = setInterval(() => {
       setCount(count + 1);
       console.log(count);
-    }, 5000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [count]);
 
@@ -34,10 +34,9 @@ export default function Home() {
                 <TableRow key="1">
                 <TableCell>本番環境</TableCell>
                 <TableCell><Link className="hover:underline" href={analytics?.production[0] ? `https://${analytics?.production[0].domain}` : ""} >{analytics?.production[0] ? analytics?.production[0].domain : ""}</Link></TableCell>
-                {/* <TableCell>{analytics?.production[0] ? analytics?.production[0].domain : ""}</TableCell> */}
                 <TableCell>{analytics?.production.length}</TableCell>
                 </TableRow>
-                {/* <TableRow key="2">
+                <TableRow key="2">
                 <TableCell>開発環境</TableCell>
                 <TableCell><Link className="hover:underline" href={analytics?.development[0] ? `https://${analytics?.development[0].domain}` : ""} >{analytics?.development[0] ? analytics?.development[0].domain : ""}</Link></TableCell>
                 <TableCell>{analytics?.development.length}</TableCell>
@@ -81,7 +80,7 @@ export default function Home() {
                 <TableCell>Classroom</TableCell>
                 <TableCell><Link className="hover:underline" href={analytics?.classroom[0] ? `https://${analytics?.classroom[0].domain}` : ""} >{analytics?.classroom[0] ? analytics?.classroom[0].domain : ""}</Link></TableCell>
                 <TableCell>{analytics?.classroom.length}</TableCell>
-                </TableRow> */}
+                </TableRow>
             </TableBody>
             </Table>  
     </div>
