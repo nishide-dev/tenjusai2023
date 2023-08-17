@@ -9,7 +9,7 @@ interface TableGridProps {
 }
 
 const TableGrid: React.FC<TableGridProps> = ({ analytics }) => {
-    return (
+    return ( 
         <>
             <Table className="" removeWrapper aria-label="Example static collection table">
             <TableHeader>
