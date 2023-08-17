@@ -67,7 +67,7 @@ export default function Home() {
             </TableRow>
             <TableRow key="10">
             <TableCell>Classroom</TableCell>
-            <TableCell><Link className="hover:underline" href={`https://${analytics?.classroom[0].domain}`} >{analytics?.classroom[0].domain || ""}</Link></TableCell>
+            <TableCell><Link className="hover:underline" href={`https://${analytics?.classroom[0].domain}` || ""} >{analytics?.classroom[0].domain || ""}</Link></TableCell>
               <TableCell>{analytics?.classroom.length}</TableCell>
             </TableRow>
           </TableBody>
