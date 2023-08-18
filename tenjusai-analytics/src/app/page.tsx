@@ -72,11 +72,16 @@ export default function Home() {
                 <TableCell>{analytics?.m2.length}</TableCell>
                 </TableRow>
                 <TableRow key="9">
-                <TableCell>職員</TableCell>
-                <TableCell><Link className="hover:underline" href={analytics?.shokuin[0] ? `https://${analytics?.shokuin[0].domain}` : ""} >{analytics?.shokuin[0] ? analytics?.shokuin[0].domain : ""}</Link></TableCell>
-                <TableCell>{analytics?.shokuin.length}</TableCell>
+                <TableCell>Doctor</TableCell>
+                <TableCell><Link className="hover:underline" href={analytics?.doctor[0] ? `https://${analytics?.doctor[0].domain}` : ""} >{analytics?.doctor[0] ? analytics?.doctor[0].domain : ""}</Link></TableCell>
+                <TableCell>{analytics?.doctor.length}</TableCell>
                 </TableRow>
                 <TableRow key="10">
+                <TableCell>職員</TableCell>
+                <TableCell><Link className="hover:underline" href={analytics?.kyoshokuin[0] ? `https://${analytics?.kyoshokuin[0].domain}` : ""} >{analytics?.kyoshokuin[0] ? analytics?.kyoshokuin[0].domain : ""}</Link></TableCell>
+                <TableCell>{analytics?.kyoshokuin.length}</TableCell>
+                </TableRow>
+                <TableRow key="11">
                 <TableCell>Classroom</TableCell>
                 <TableCell><Link className="hover:underline" href={analytics?.classroom[0] ? `https://${analytics?.classroom[0].domain}` : ""} >{analytics?.classroom[0] ? analytics?.classroom[0].domain : ""}</Link></TableCell>
                 <TableCell>{analytics?.classroom.length}</TableCell>

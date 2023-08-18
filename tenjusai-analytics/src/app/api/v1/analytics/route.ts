@@ -12,7 +12,8 @@ export const POST = async (request: Request) => {
     const { data: b4 } = await supabase.from('accesses').select('*').eq('domain', 'b4.tenjusai.jp')
     const { data: m1 } = await supabase.from('accesses').select('*').eq('domain', 'm1.tenjusai.jp')
     const { data: m2 } = await supabase.from('accesses').select('*').eq('domain', 'm2.tenjusai.jp')
-    const { data: shokuin } = await supabase.from('accesses').select('*').eq('domain', 'shokuin.tenjusai.jp')
+    const { data: doctor } = await supabase.from('accesses').select('*').eq('domain', 'doctor.tenjusai.jp')
+    const { data: kyoshokuin } = await supabase.from('accesses').select('*').eq('domain', 'kyoshokuin.tenjusai.jp')
     const { data: classroom } = await supabase.from('accesses').select('*').eq('domain', 'classroom.tenjusai.jp')
 
     try {
@@ -26,7 +27,8 @@ export const POST = async (request: Request) => {
             b4,
             m1,
             m2,
-            shokuin,
+            doctor,
+            kyoshokuin,
             classroom,
         }, {
             status: 200,
