@@ -104,6 +104,7 @@ export type Analytics = {
     b4: Access[];
     m1: Access[];
     m2: Access[];
-    shokuin: Access[];
+    doctor: Access[];
+    kyoshokuin: Access[];
     classroom: Access[];
 }
