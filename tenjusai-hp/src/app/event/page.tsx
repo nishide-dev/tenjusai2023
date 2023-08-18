@@ -79,7 +79,7 @@ const EventList: React.FC<EventListProps> = ({ events, images, className }: Even
                     <FadeInToUp key={event.name}>
                     <section className="bg-white rounded-md mb-3 px-1 md:px-3 border md:border-none" >
                         <div className="gap-8 items-center py-8 px-2 md:px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-                            <div className=" overflow-hidden max-h-[40rem] rounded-md shadow-xl">
+                            <div className=" overflow-hidden max-h-[32rem] rounded-md shadow-xl">
                                 <Image className="w-full" src={event.thumbnail_link} alt={event.name} width={600} height={600} />
                             </div>
                             <div className="mt-6 md:mt-0 px-2">
@@ -110,7 +110,13 @@ const EventList: React.FC<EventListProps> = ({ events, images, className }: Even
                                         <div className="flex gap-4">
                                             <div className="text-orange-500 font-semibold text-lg">9/9 (土)</div>
                                             <div className="text-orange-500 font-semibold text-lg">
-                                                {event.first_date}
+                                                { // event.first_dateは空白で改行する
+                                                    event.first_date.split(" ").map((date, index) => {
+                                                        return (
+                                                            <div key={date}>{date}</div>
+                                                        )
+                                                    })
+                                                }
                                             </div>
                                         </div>
                                     ) : null
@@ -188,7 +194,7 @@ const EventList: React.FC<EventListProps> = ({ events, images, className }: Even
                                     </div>
                                 </Link>
                             </div>
-                            <div className=" overflow-hidden max-h-[40rem] rounded-md shadow-xl">
+                            <div className=" overflow-hidden max-h-[32rem] rounded-md shadow-xl">
                                 <Image className="w-full" src={event.thumbnail_link} alt={event.name} width={600} height={600} />
                             </div>
                         </div>
