@@ -7,7 +7,7 @@ import NextImage from "next/image";
 
 type StageModalProps = {
     stage: Stage,
-    children?: React.ReactNode
+    children?: React.ReactNode 
 }
 
 const StageModal: React.FC<StageModalProps> = ({ stage, children}: StageModalProps) => {
