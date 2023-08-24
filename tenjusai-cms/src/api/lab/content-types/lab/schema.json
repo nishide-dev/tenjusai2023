@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "labs",
+  "info": {
+    "singularName": "lab",
+    "pluralName": "labs",
+    "displayName": "Lab",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "unique": false
+    },
+    "thumbnail": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "thumbnail_link": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "place": {
+      "type": "string",
+      "required": false,
+      "unique": false
+    },
+    "content": {
+      "type": "string"
+    },
+    "first": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "second": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "first_date": {
+      "type": "string"
+    },
+    "second_date": {
+      "type": "string"
+    }
+  }
+}

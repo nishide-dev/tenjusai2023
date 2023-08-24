@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "supporters",
+  "info": {
+    "singularName": "supporter",
+    "pluralName": "supporters",
+    "displayName": "Supporter",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "thumbnail": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "thumbnail_link": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

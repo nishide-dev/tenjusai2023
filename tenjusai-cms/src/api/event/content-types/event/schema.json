@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "stages",
+  "collectionName": "events",
   "info": {
-    "singularName": "stage",
-    "pluralName": "stages",
-    "displayName": "Stage",
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "event",
     "description": ""
   },
   "options": {
@@ -13,53 +13,57 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "thumbnail": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": false,
+      "private": true
     },
     "thumbnail_link": {
       "type": "string",
       "required": true,
       "unique": true
     },
-    "main": {
-      "type": "boolean",
-      "default": false,
-      "required": true
+    "place": {
+      "type": "string",
+      "required": false
     },
     "first": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "genre": {
-      "type": "string",
-      "required": true,
-      "unique": false
-    },
-    "category": {
-      "type": "string",
+    "second": {
+      "type": "boolean",
+      "default": false,
       "required": true
     },
-    "start": {
-      "type": "datetime",
-      "required": true
+    "first_date": {
+      "type": "string",
+      "required": false
     },
-    "end": {
-      "required": true,
-      "type": "datetime"
+    "second_date": {
+      "type": "string"
+    },
+    "needs_reservation": {
+      "type": "boolean",
+      "default": false
+    },
+    "reservation_notes": {
+      "type": "text"
     }
   }
 }

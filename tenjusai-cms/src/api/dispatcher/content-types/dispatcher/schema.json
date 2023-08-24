@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dispatchers",
+  "info": {
+    "singularName": "dispatcher",
+    "pluralName": "dispatchers",
+    "displayName": "Dispatcher"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}
