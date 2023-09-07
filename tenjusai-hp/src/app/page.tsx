@@ -87,7 +87,7 @@ export default function Home() {
     <>
       <ScrollButton />
       <div className="h-screen portrait:sm:h-[40vh] bg-tenjusaiHero scrollbar-hide">
-        <TyhoonInfo className="hidden sm:block" />
+        <TyhoonInfo className="hidden sm:block sm:h-0" />
         <div className="flex flex-col items-center justify-center bg-hero-pattern bg-cover landscape:h-screen portrait:h-[50vh] portrait:sm:h-full bg-scroll animate-fade-in">
           <div className="absolute right-16 md:right-20 xl:right-40 2xl:right-48 overflow-hidden h-0 landscape:h-auto portrait:sm:h-auto portrait:right-20 mt-20">
             <div className="flex flex-col items-center animate-fade-in-right">
