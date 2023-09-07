@@ -8,6 +8,8 @@ import MainSchedule from '@/components/schedule/MainSchedule';
 import Access from '@/components/map/Access';
 import useInfo from '@/utils/useInfo';
 import Headquarters from '@/components/ campus/Headquarters';
+import TyhoonInfo from '@/components/typhoon/tyhoonInfo';
+import Link from 'next/link';
 
 interface MarqueeProps {
   text: string;
@@ -85,6 +87,7 @@ export default function Home() {
     <>
       <ScrollButton />
       <div className="h-screen portrait:sm:h-[40vh] bg-tenjusaiHero scrollbar-hide">
+        <TyhoonInfo className="hidden sm:block sm:h-0" />
         <div className="flex flex-col items-center justify-center bg-hero-pattern bg-cover landscape:h-screen portrait:h-[50vh] portrait:sm:h-full bg-scroll animate-fade-in">
           <div className="absolute right-16 md:right-20 xl:right-40 2xl:right-48 overflow-hidden h-0 landscape:h-auto portrait:sm:h-auto portrait:right-20 mt-20">
             <div className="flex flex-col items-center animate-fade-in-right">
@@ -92,22 +95,27 @@ export default function Home() {
               {/* <div className=""><h1 className="text-tenjusaiOrange text-9xl font-extrabold">TENJUSAI</h1></div> */}
               <p className="font-semibold text-gray-500 text-lg md:text-xl lg:text-2xl mt-2">40th 豊田工業大学 大学祭</p>
               <div className="m-2 mt-4 font-bold text-tenjusaiOrange text-2xl md:text-3xl lg:text-4xl">9/9 Sat 9/10 Sun</div>
-              {/* <button type="button" className="mt-7 text-white bg-tenjusaiGreen hover:bg-teal-600 focus:ring-2 focus:outline-none focus:ring-teal-600 font-semibold rounded-2xl text-md px-5 py-3.5 text-center inline-flex items-center">
-                  パンフレットはこちら
-                  <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-              </button> */}
+              <a href="https://tenjusai2023-cms.s3.ap-northeast-1.amazonaws.com/2023.pdf">
+                <button type="button" className="mt-7 text-white bg-tenjusaiOrange hover:bg-tenjusaiOrange focus:ring-2 focus:outline-none focus:ring-tenjusaiOrange font-semibold rounded-2xl text-md px-5 py-3.5 text-center inline-flex items-center">
+                    パンフレットはこちら
+                    <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                </button>
+              </a>
             </div>
           </div>
         </div>
         <div className="flex flex-col items-center animate-fade-in-up landscape:h-0 landscape:hidden portrait:sm:h-0 portrait:sm:hidden">
+          <TyhoonInfo />
           <Image src="/title.PNG" alt="logo" width={300} height={300} />
           {/* <div className=""><h1 className="text-tenjusaiOrange text-6xl font-extrabold sm:text-7xl md:text-8xl">TENJUSAI</h1></div> */}
           <p className="font-semibold text-gray-500">40th 豊田工業大学 大学祭</p>
           <div className="m-2 mt-4 font-bold text-tenjusaiOrange text-3xl">9/9 Sat 9/10 Sun</div>
-          {/* <button type="button" className="mt-7 text-white bg-tenjusaiGreen hover:bg-teal-600 focus:ring-2 focus:outline-none focus:ring-teal-600 font-semibold rounded-2xl text-md px-5 py-3 text-center inline-flex items-center">
-              パンフレットはこちら
-              <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-          </button> */}
+          <a href="https://tenjusai2023-cms.s3.ap-northeast-1.amazonaws.com/2023.pdf">
+            <button type="button" className="mt-7 text-white bg-tenjusaiOrange hover:bg-tenjusaiOrange focus:ring-2 focus:outline-none focus:ring-tenjusaiOrange font-semibold rounded-2xl text-md px-5 py-3 text-center inline-flex items-center">
+                パンフレットはこちら
+                <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+            </button>
+          </a>
         </div>
       </div>
       <AboutUs />
