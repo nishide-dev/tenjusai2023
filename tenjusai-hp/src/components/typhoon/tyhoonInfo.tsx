@@ -24,7 +24,7 @@ const TyphoonInfo: React.FC<TyphoonInfoProps> = ({ className }) => {
     return (
         <div className={`${className}`}>
             <div className="flex flex-col items-center">
-                <Button className="sm:absolute mx-auto z-10 sm:mt-12 md:mt-16 xl:mt-20 mb-6" color="danger" variant="bordered" startContent={<NotionIcon />} onPress={() => handleOpen()}>台風13号に伴う対応について【クリック】</Button>
+                <Button className="sm:absolute mx-auto z-10 sm:mt-12 md:mt-16 xl:mt-20 mb-6" color="success" variant="bordered" startContent={<NotionIcon />} onPress={() => handleOpen()}>開催決定！！🎉✨【クリック】</Button>
             </div>
             <Modal
                     size="md"
@@ -34,14 +34,10 @@ const TyphoonInfo: React.FC<TyphoonInfoProps> = ({ className }) => {
                     <ModalContent>
                     {(onClose) => (
                         <>
-                        <ModalHeader className="flex flex-col gap-1">台風13号に伴う対応について</ModalHeader>
+                        <ModalHeader className="flex flex-col gap-1">開催決定！！🎉✨</ModalHeader>
                         <ModalBody>
-                            <p>台風13号接近にともない，9月8日（金）から9月9日（土）頃，荒天となる可能性があります．
-                                来場者や出演者の皆さまの安全を考慮し，9月9日（土）の日程について，内容の中止または一部中止の判断をする場合があります．
-                            </p>
                             <p>
-                                9月9日（土）朝時点の警報・注意報などの状況により開催の可否を決定し，同日午前9時までにHP（tenjusai.jp），および公式X（旧Twitter），公式Instagramにてお知らせします．
-                                皆さまにはご迷惑をおかけいたしますが，どうかご了承くださいますようお願い申し上げます．
+                                皆様のご来場をお待ちしております！
                             </p>
                         </ModalBody>
                         <ModalFooter>
